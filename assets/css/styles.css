@@ -624,6 +624,14 @@ img {
         display: none;
     }
 
+    /* .skills__content{
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .skills__data{
+        padding-right: 0.5rem;
+    } */
+
     .references__container{
         grid-template-columns: repeat(2, 1fr);
     }
