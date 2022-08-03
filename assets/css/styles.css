@@ -75,7 +75,8 @@ body.scale-cv{
     --h2-font-size: .938rem;
     --h3-font-size: .875rem;
     --normal-font-size: .813rem;
-    --small-font-size: .75rem;
+    /* --small-font-size: .75rem;  */
+    --small-font-size: .688rem; 
     --smaller-font-size: .688rem;
 }
 
@@ -106,7 +107,7 @@ body.scale-cv{
 }
 
 .scale-cv .section{
-    padding: 1rem 0 .50rem;
+    padding: 0.75rem 0 .50rem;
 }
 
 .scale-cv .section-title{
@@ -133,7 +134,7 @@ body.scale-cv{
 
 .scale-cv .home__address,
 .scale-cv .social__container{
-    gap: .75rem;
+    gap: .50rem;
 }
 
 .scale-cv .home__icon,
@@ -466,7 +467,7 @@ img {
     font-size: var(--smaller-font-size);
 }
 
-/*========== SKILLS AND LANGUAGES ==========*/
+/*========== SKILLS, LANGUAGES AND COMPETENCIES ==========*/
 .skills__content{
     grid-template-columns: repeat(2, 1fr);
 }
@@ -475,20 +476,27 @@ img {
     grid-template-columns: repeat(2, 1fr);
 }
 
+.competencies__content{
+    grid-template-columns: repeat(2, 1fr);
+}
+
 .skills__content,
-.languages__content{
+.languages__content,
+.competencies__content{
     gap: 0;
 }
 
 .skills__name,
-.languages__name{
+.languages__name,
+.competencies__name{
     display: flex;
     align-items: center;
     margin-bottom: var(--mb-2);
 }
 
 .skills__circle,
-.languages__circle{
+.languages__circle,
+.competencies__circle{
     display: inline-block;
     width: 5px;
     height: 5px;
@@ -522,7 +530,7 @@ img {
 }
 /*========== INTERESTS ==========*/
 .interests__container{
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     margin-top: var(--mb-2);
 }
 
@@ -642,8 +650,13 @@ img {
         column-gap: 3.5rem;
     }
 
-    .interests__container{
+    .competencies__content{
         grid-template-columns: repeat(3, max-content);
+        column-gap: 2.5rem;
+    }
+
+    .interests__container{
+        grid-template-columns: repeat(4, max-content);
         column-gap: 3.5rem;
     }
     
