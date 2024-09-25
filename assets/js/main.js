@@ -93,32 +93,36 @@ function removeScale(){
 
 /*==================== GENERATE PDF ====================*/ 
 // PDF generated area
-let areaCv = document.getElementById('area-cv')
+let areaCv = document.getElementById('area-cv');
 
-let resumeButton = document.getElementById('resume-button')
+let resumeButton = document.getElementById('resume-button');
 
-// Html2pdf options
+// Html2pdf options (adjusted for quality and removing background issues)
 let opt = {
-    margin:       1,
-    filename:     'CV - Tuquina, Fernando.pdf',
-    image:        { type: 'jpeg', quality: 0.98 },
-    html2canvas:  { scale: 4 },
-    jsPDF:        { format: 'a4', orientation: 'portrait' }
-  };
+    margin: 0, /* Sin márgenes adicionales */
+    filename: 'CV - Tuquina, Fernando.pdf',
+    image: { type: 'jpeg', quality: 1 }, /* Mejorar la calidad de imagen */
+    html2canvas: { 
+        scale: 3, /* Aumentar la escala para mejorar la calidad */
+        useCORS: true, /* Permitir imágenes externas */
+        backgroundColor: window.getComputedStyle(document.body).backgroundColor, /* Capturar el color de fondo correcto */
+        scrollX: 0,
+        scrollY: 0
+    },
+    jsPDF: { 
+        unit: 'px', /* Usamos 'px' para evitar escalado no deseado */
+        format: [areaCv.scrollWidth, areaCv.scrollHeight], /* Ajustar el tamaño dinámicamente basado en el contenido real */
+        orientation: 'portrait' /* Mantener la orientación vertical */
+    }
+};
 
 // Function to call areaCv and Html2Pdf options 
-function generateResume(){
-    html2pdf(areaCv, opt)
+function generateResume() {
+    html2pdf().from(areaCv).set(opt).save();
 }
 
-// When the button is clicked, it executes the three functions
+// When the button is clicked, it executes the functions
 resumeButton.addEventListener('click', () => {
-    // 1. The class .scale-cv is added to the body, where it reduces the size of the elements
-    scaleCV()
-
-    // 2. The PDF is generated
-    generateResume()
-
-    // 3. The .scale-cv class is removed from the body after 5 seconds to return to normal size.
-    setTimeout(removeScale, 5000)
-})
+    // 1. Mantener el tamaño del contenido y generar el PDF
+    generateResume();
+});
