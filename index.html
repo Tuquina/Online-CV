@@ -65,6 +65,18 @@
                         </a>
                     </li>
 
+                    <li class="nav__item">
+                        <a href="javascript:void(0)" class="nav__link" onclick="togglePopup('popup-achievements'); linkAction();">
+                            <i class='bx bx-trophy nav__icon'></i>Achievements
+                        </a>
+                    </li>
+                    
+                    <li class="nav__item">
+                        <a href="javascript:void(0)" class="nav__link" onclick="togglePopup('popup-cover-letter'); linkAction();">
+                            <i class='bx bx-file nav__icon'></i>Cover Letter
+                        </a>
+                    </li>
+
                 </ul>
             </div>
 
@@ -464,8 +476,8 @@
             </div>
         </div>
 
-        <!-- Botones para ver los popups -->
-        <div class="section bd-container popup-buttons-wrapper">
+        <!-- Botones para ver los popups (solo visibles en desktop) -->
+        <div class="section bd-container popup-buttons-wrapper hide-on-mobile">
             <div class="popup-button-container">
             <button class="popup-button" onclick="togglePopup('popup-achievements')">
                 <i class='bx bx-trophy'></i> Achievements
@@ -529,6 +541,7 @@
             </div>
             </div>
         </div>
+  
   
     </main>
 

@@ -824,3 +824,10 @@ img {
 .hidden {
     display: none;
 }
+
+/* Oculta elementos solo en mobile */
+@media screen and (max-width: 968px) {
+    .hide-on-mobile {
+      display: none !important;
+    }
+  }
