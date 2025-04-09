@@ -126,3 +126,12 @@ resumeButton.addEventListener('click', () => {
     // 1. Mantener el tamaño del contenido y generar el PDF
     generateResume();
 });
+
+function togglePopup(id) {
+    const modal = document.getElementById(id);
+    if (modal.classList.contains('hidden')) {
+        modal.classList.remove('hidden');
+    } else {
+        modal.classList.add('hidden');
+    }
+}

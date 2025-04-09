@@ -463,6 +463,37 @@
                 </section>
             </div>
         </div>
+
+        <!-- Botones para ver los popups -->
+        <div class="section bd-container" style="text-align: center; margin-top: 2rem;">
+            <button class="popup-button" onclick="togglePopup('popup-achievements')">🏆 Ver logros destacados</button>
+            <button class="popup-button" onclick="togglePopup('popup-cover-letter')">📄 Leer carta de presentación</button>
+        </div>
+        
+        <!-- Modal de Logros -->
+        <div id="popup-achievements" class="popup-modal hidden">
+            <div class="popup-content">
+            <span class="popup-close" onclick="togglePopup('popup-achievements')">&times;</span>
+            <h2 class="section-title">Logros destacados</h2>
+            <ul class="popup-list">
+                <li>🔧 Migración a microservicios con arquitectura limpia, reduciendo el tiempo de respuesta un 40%.</li>
+                <li>📈 Implementación de logging profesional con Serilog y trazabilidad por request ID.</li>
+                <li>⚙️ Refactorización de código legacy mejorando el rendimiento general y reduciendo deuda técnica.</li>
+            </ul>
+            </div>
+        </div>
+        
+        <!-- Modal de Carta de presentación -->
+        <div id="popup-cover-letter" class="popup-modal hidden">
+            <div class="popup-content">
+            <span class="popup-close" onclick="togglePopup('popup-cover-letter')">&times;</span>
+            <h2 class="section-title">Carta de presentación</h2>
+            <p class="popup-text">
+                Como ingeniero de software con sólida experiencia en desarrollo backend, liderazgo técnico y optimización de sistemas, busco aportar mi enfoque profesional orientado a la calidad, performance y arquitectura limpia en proyectos desafiantes. Mi objetivo es seguir creciendo en entornos donde la excelencia técnica y la colaboración marquen la diferencia. Me impulsa la mejora continua y el impacto real en el producto y el equipo.
+            </p>
+            </div>
+        </div>
+  
     </main>
 
     <!--========== SCROLL TOP ==========-->
