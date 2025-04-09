@@ -828,6 +828,18 @@ img {
 /* Oculta elementos solo en mobile */
 @media screen and (max-width: 968px) {
     .hide-on-mobile {
-      display: none !important;
+        display: none !important;
     }
-  }
+}
+
+
+.popup-signature {
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.signature-image {
+    max-height: 80px;
+    margin-top: 0.5rem;
+    opacity: 0.85;
+}
