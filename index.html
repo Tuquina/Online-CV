@@ -478,69 +478,72 @@
 
         <!-- Botones para ver los popups (solo visibles en desktop) -->
         <div class="section bd-container popup-buttons-wrapper hide-on-mobile">
-        <div class="popup-button-container">
-            <button class="popup-button" onclick="togglePopup('popup-achievements')">
-            <i class='bx bx-trophy'></i> Achievements
-            </button>
-        </div>
-        <div class="popup-button-container">
-            <button class="popup-button" onclick="togglePopup('popup-cover-letter')">
-            <i class='bx bx-file'></i> Cover Letter
-            </button>
-        </div>
+            <div class="popup-button-container">
+                <button class="popup-button" onclick="togglePopup('popup-achievements')">
+                <i class='bx bx-trophy'></i> Achievements
+                </button>
+            </div>
+            <div class="popup-button-container">
+                <button class="popup-button" onclick="togglePopup('popup-cover-letter')">
+                <i class='bx bx-file'></i> Cover Letter
+                </button>
+            </div>
         </div>
 
         <!-- Modal de Logros -->
         <div id="popup-achievements" class="popup-modal hidden" onclick="outsideClick(event, 'popup-achievements')">
-        <div class="popup-content" onclick="event.stopPropagation()">
-            <button class="popup-close" onclick="togglePopup('popup-achievements')">&times;</button>
-            <h2 class="section-title">Achievements</h2>
-            <div class="popup-section">
-            <p class="popup-text">
-                Throughout my career, I've consistently sought not only to meet expectations but to exceed them by focusing on architectural clarity, performance, and real business value. These are some of the milestones I'm most proud of:
-            </p>
-            <ul class="popup-list-default">
-                <li>Migrated a legacy monolithic application into a microservices architecture using .NET and Docker, improving response times by 40% and enabling scalable deployments.</li>
-                <li>Implemented a custom middleware for full HTTP request tracing using Serilog, correlation IDs, and structured logs, significantly improving observability in distributed systems.</li>
-                <li>Redesigned critical business workflows applying Clean Architecture principles, improving long-term maintainability and test coverage.</li>
-                <li>Led a backend team as Tech Lead at Coto Digital, promoting agile practices and improving code review processes to enhance code quality and delivery speed.</li>
-                <li>Proactively identified and resolved performance bottlenecks in high-traffic APIs, optimizing SQL queries and caching mechanisms to reduce load by over 30%.</li>
-                <li>Introduced coding standards and automated linting into CI/CD pipelines, increasing consistency and reducing post-deployment issues.</li>
-                <li>Mentored junior developers, encouraging clean code, domain-driven design, and professional growth within the team.</li>
-            </ul>
+            <div class="popup-content" onclick="event.stopPropagation()">
+                <button class="popup-close" onclick="togglePopup('popup-achievements')">&times;</button>
+                <h2 class="section-title">Achievements</h2>
+                <div class="popup-section">
+                <p class="popup-text">
+                    Throughout my career, I've consistently sought not only to meet expectations but to exceed them by focusing on architectural clarity, performance, and real business value. These are some of the milestones I'm most proud of:
+                </p>
+                <ul class="popup-list-default">
+                    <li>Migrated a legacy monolithic application into a microservices architecture using .NET and Docker, improving response times by 40% and enabling scalable deployments.</li>
+                    <li>Implemented a custom middleware for full HTTP request tracing using Serilog, correlation IDs, and structured logs, significantly improving observability in distributed systems.</li>
+                    <li>Redesigned critical business workflows applying Clean Architecture principles, improving long-term maintainability and test coverage.</li>
+                    <li>Led a backend team as Tech Lead at Coto Digital, promoting agile practices and improving code review processes to enhance code quality and delivery speed.</li>
+                    <li>Proactively identified and resolved performance bottlenecks in high-traffic APIs, optimizing SQL queries and caching mechanisms to reduce load by over 30%.</li>
+                    <li>Introduced coding standards and automated linting into CI/CD pipelines, increasing consistency and reducing post-deployment issues.</li>
+                    <li>Mentored junior developers, encouraging clean code, domain-driven design, and professional growth within the team.</li>
+                </ul>
+                </div>
             </div>
-        </div>
         </div>
 
         <!-- Modal de Carta de presentación -->
         <div id="popup-cover-letter" class="popup-modal hidden" onclick="outsideClick(event, 'popup-cover-letter')">
-        <div class="popup-content" onclick="event.stopPropagation()">
-            <button class="popup-close" onclick="togglePopup('popup-cover-letter')">&times;</button>
-            <h2 class="section-title">Cover Letter</h2>
-            <div class="popup-section">
-            <p class="popup-text">
-                Dear Hiring Team,
-            </p>
-            <p class="popup-text">
-                I’m Fernando Nahuel Tuquina, a passionate software engineer and Tech Lead currently working at Coto Digital. Over the years, I’ve specialized in designing scalable and high-performance backend systems using .NET, Oracle, and Docker, with a constant drive to apply Clean Architecture principles and best practices in every line of code I write.
-            </p>
-            <p class="popup-text">
-                What sets me apart is my commitment to building systems that not only solve current needs but also anticipate future ones — systems that are maintainable, well-structured, and truly efficient. I thrive in environments that value continuous learning, thoughtful engineering, and the impact of good design on both business and developer experience.
-            </p>
-            <p class="popup-text">
-                Beyond code, I value team mentorship, clear communication, and aligning tech decisions with business goals. I’ve led initiatives to refactor legacy systems, implement CI/CD pipelines, and improve developer onboarding processes — always with the aim of creating better experiences for both users and teams.
-            </p>
-            <p class="popup-text">
-                I’m looking forward to opportunities where I can contribute with depth, lead with purpose, and keep learning from talented professionals. I’d love the chance to bring that energy and vision to your team.
-            </p>
-            <div class="popup-signature">
-                <p class="popup-text">Thank you for your time and consideration.</p>
-                <p class="popup-text">Warm regards,</p>
-                <p class="popup-text"><strong>Fernando Nahuel Tuquina</strong></p>
-                <img src="assets/img/signature.png" alt="Signature" class="signature-image">
+            <div class="popup-content" onclick="event.stopPropagation()">
+                <button class="popup-close" onclick="togglePopup('popup-cover-letter')">&times;</button>
+                <h2 class="section-title">Cover Letter</h2>
+                <div class="popup-section">
+                <p class="popup-text">
+                    Dear Hiring Team,
+                </p>
+                <p class="popup-text">
+                    I’m Fernando Nahuel Tuquina, a passionate software engineer and Tech Lead currently working at Coto Digital. Over the years, I’ve specialized in designing scalable and high-performance backend systems using .NET, Oracle, and Docker, with a constant drive to apply Clean Architecture principles and best practices in every line of code I write.
+                </p>
+                <p class="popup-text">
+                    What sets me apart is my commitment to building systems that not only solve current needs but also anticipate future ones — systems that are maintainable, well-structured, and truly efficient. I thrive in environments that value continuous learning, thoughtful engineering, and the impact of good design on both business and developer experience.
+                </p>
+                <p class="popup-text">
+                    Beyond code, I value team mentorship, clear communication, and aligning tech decisions with business goals. I’ve led initiatives to refactor legacy systems, implement CI/CD pipelines, and improve developer onboarding processes — always with the aim of creating better experiences for both users and teams.
+                </p>
+                <p class="popup-text">
+                    I’m looking forward to opportunities where I can contribute with depth, lead with purpose, and keep learning from talented professionals. I’d love the chance to bring that energy and vision to your team.
+                </p>
+                <hr class="signature-separator">
+                    <div class="popup-signature">
+                    <p class="popup-thankyou">Thank you for your time and consideration.</p>
+                    <p class="popup-closing">Warm regards,</p>
+                    <div class="popup-author">
+                        <p class="popup-name cursive">Fernando Nahuel Tuquina</p>
+                        <img src="assets/img/signature.png" alt="Signature" class="signature-image">
+                    </div>
+                    </div>
+                </div>
             </div>
-            </div>
-        </div>
         </div>
   
   
