@@ -135,3 +135,10 @@ function togglePopup(id) {
         modal.classList.add('hidden');
     }
 }
+
+function outsideClick(event, modalId) {
+    const modal = document.getElementById(modalId);
+    if (event.target === modal) {
+        togglePopup(modalId);
+    }
+}

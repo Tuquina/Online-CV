@@ -465,32 +465,68 @@
         </div>
 
         <!-- Botones para ver los popups -->
-        <div class="section bd-container" style="text-align: center; margin-top: 2rem;">
-            <button class="popup-button" onclick="togglePopup('popup-achievements')">🏆 Ver logros destacados</button>
-            <button class="popup-button" onclick="togglePopup('popup-cover-letter')">📄 Leer carta de presentación</button>
+        <div class="section bd-container popup-buttons-wrapper">
+            <div class="popup-button-container">
+            <button class="popup-button" onclick="togglePopup('popup-achievements')">
+                <i class='bx bx-trophy'></i> Achievements
+            </button>
+            </div>
+            <div class="popup-button-container">
+            <button class="popup-button" onclick="togglePopup('popup-cover-letter')">
+                <i class='bx bx-file'></i> Cover Letter
+            </button>
+            </div>
         </div>
         
         <!-- Modal de Logros -->
-        <div id="popup-achievements" class="popup-modal hidden">
-            <div class="popup-content">
-            <span class="popup-close" onclick="togglePopup('popup-achievements')">&times;</span>
-            <h2 class="section-title">Logros destacados</h2>
-            <ul class="popup-list">
-                <li>🔧 Migración a microservicios con arquitectura limpia, reduciendo el tiempo de respuesta un 40%.</li>
-                <li>📈 Implementación de logging profesional con Serilog y trazabilidad por request ID.</li>
-                <li>⚙️ Refactorización de código legacy mejorando el rendimiento general y reduciendo deuda técnica.</li>
-            </ul>
+        <div id="popup-achievements" class="popup-modal hidden" onclick="outsideClick(event, 'popup-achievements')">
+            <div class="popup-content" onclick="event.stopPropagation()">
+            <button class="popup-close" onclick="togglePopup('popup-achievements')">&times;</button>
+            <h2 class="section-title">Achievements</h2>
+            <div class="popup-section">
+                <p class="popup-text">
+                Throughout my career, I've consistently sought not only to meet expectations but to exceed them by focusing on architectural clarity, performance, and real business value. These are some of the milestones I'm most proud of:
+                </p>
+                <ul class="popup-list-default">
+                <li>Migrated a legacy monolithic application into a microservices architecture using .NET and Docker, improving response times by 40% and enabling scalable deployments.</li>
+                <li>Implemented a custom middleware for full HTTP request tracing using Serilog, correlation IDs, and structured logs, significantly improving observability in distributed systems.</li>
+                <li>Redesigned critical business workflows applying Clean Architecture principles, improving long-term maintainability and test coverage.</li>
+                <li>Led a backend team as Tech Lead at Coto Digital, promoting agile practices and improving code review processes to enhance code quality and delivery speed.</li>
+                <li>Proactively identified and resolved performance bottlenecks in high-traffic APIs, optimizing SQL queries and caching mechanisms to reduce load by over 30%.</li>
+                <li>Introduced coding standards and automated linting into CI/CD pipelines, increasing consistency and reducing post-deployment issues.</li>
+                <li>Mentored junior developers, encouraging clean code, domain-driven design, and professional growth within the team.</li>
+                </ul>
+            </div>
             </div>
         </div>
         
         <!-- Modal de Carta de presentación -->
-        <div id="popup-cover-letter" class="popup-modal hidden">
-            <div class="popup-content">
-            <span class="popup-close" onclick="togglePopup('popup-cover-letter')">&times;</span>
-            <h2 class="section-title">Carta de presentación</h2>
-            <p class="popup-text">
-                Como ingeniero de software con sólida experiencia en desarrollo backend, liderazgo técnico y optimización de sistemas, busco aportar mi enfoque profesional orientado a la calidad, performance y arquitectura limpia en proyectos desafiantes. Mi objetivo es seguir creciendo en entornos donde la excelencia técnica y la colaboración marquen la diferencia. Me impulsa la mejora continua y el impacto real en el producto y el equipo.
-            </p>
+        <div id="popup-cover-letter" class="popup-modal hidden" onclick="outsideClick(event, 'popup-cover-letter')">
+            <div class="popup-content" onclick="event.stopPropagation()">
+            <button class="popup-close" onclick="togglePopup('popup-cover-letter')">&times;</button>
+            <h2 class="section-title">Cover Letter</h2>
+            <div class="popup-section">
+                <p class="popup-text">
+                Dear Hiring Team,
+                </p>
+                <p class="popup-text">
+                I’m Fernando Nahuel Tuquina, a passionate software engineer and Tech Lead currently working at Coto Digital. Over the years, I’ve specialized in designing scalable and high-performance backend systems using .NET, Oracle, and Docker, with a constant drive to apply Clean Architecture principles and best practices in every line of code I write.
+                </p>
+                <p class="popup-text">
+                What sets me apart is my commitment to building systems that not only solve current needs but also anticipate future ones — systems that are maintainable, well-structured, and truly efficient. I thrive in environments that value continuous learning, thoughtful engineering, and the impact of good design on both business and developer experience.
+                </p>
+                <p class="popup-text">
+                Beyond code, I value team mentorship, clear communication, and aligning tech decisions with business goals. I’ve led initiatives to refactor legacy systems, implement CI/CD pipelines, and improve developer onboarding processes — always with the aim of creating better experiences for both users and teams.
+                </p>
+                <p class="popup-text">
+                I’m looking forward to opportunities where I can contribute with depth, lead with purpose, and keep learning from talented professionals. I’d love the chance to bring that energy and vision to your team.
+                </p>
+                <p class="popup-text">
+                Thank you for your time and consideration.
+                <br>Warm regards,<br>
+                Fernando Nahuel Tuquina
+                </p>
+            </div>
             </div>
         </div>
   
