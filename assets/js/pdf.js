@@ -195,12 +195,14 @@ const buildCv = (w, t) => {
 
     w.heading(s.experience);
     t.experience.forEach((job, index) => {
-        if (index > 0) w.space(7);
-        w.ensure(70); // keep the job title with its first bullets
+        if (index > 0) w.space(job.highlights ? 7 : 4);
+        w.ensure(job.highlights ? 70 : 30); // keep the job title with its first bullets
         w.titleWithPeriod(job.role, formatPeriod(job, t));
         w.paragraph([job.company, job.context].filter(Boolean).join(' · '), { size: 9.8, color: COLOR.muted });
-        w.space(3);
-        w.bullets(job.highlights);
+        if (job.highlights) {
+            w.space(3);
+            w.bullets(job.highlights);
+        }
     });
 
     w.heading(s.skills);

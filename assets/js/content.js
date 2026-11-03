@@ -62,11 +62,9 @@ export const content = {
             location: 'Tucumán, Argentina',
         },
         summary:
-            'Senior Software Engineer with 4+ years of experience building backend systems with Java and .NET for banking and retail. ' +
-            'At ITTI, working for ueno bank, I rebuilt the bank’s mass debt collector, which now processes 5.7M+ debts a month across overdrafts, credit cards and loans. ' +
-            'I work with a hybrid approach that combines traditional programming with agentic development guided by Spec-Driven Development (SDD). ' +
-            'Previously Backend Tech Lead at Coto Digital, where I led the backend team and designed Kafka- and Redis-based solutions. ' +
-            'I care about clean architecture, performance and code that the next person can easily understand.',
+            'Senior Software Engineer with 4+ years of experience building backend systems in Java and .NET for banking and retail. ' +
+            'At ITTI (client: ueno bank) I rebuilt the bank’s mass debt collector, which now processes 5.7M+ debts a month, working with a hybrid of traditional and agentic development guided by Spec-Driven Development (SDD). ' +
+            'Former Backend Tech Lead at Coto Digital. I care about clean architecture, performance and code that is easy for the next person to understand.',
         experience: [
             {
                 role: 'Senior Software Engineer',
@@ -75,12 +73,11 @@ export const content = {
                 start: '2025-08',
                 end: null,
                 highlights: [
-                    'Rebuilt the bank’s mass debt collector from scratch, replacing a legacy process that did not support overdrafts. It now processes 5.7M+ delinquent debts a month (~170K a day) across overdrafts, credit cards and loans.',
-                    'Drove ~250K successful collections a month, recovering PYG 12B+ and USD 78K+, and designed association algorithms that add accounts and salaries to each collection attempt (244K associations a month).',
-                    'Built back-office tools for the collections operation (customer exclusions, refunds and reversals) end to end: React micro-frontend, Kong API Gateway routes, BFF and backend microservices.',
-                    'Automated loan restructuring into a 100% digital, self-service process.',
-                    'Split key collections repositories from monoliths into modular monoliths organized by bounded context, and created centralized debt-inquiry endpoints and new endpoints for the redesigned app home (loans and available credit per user).',
-                    'Co-wrote PRDs and RFCs with the Engineering Manager and Product Manager to work with Spec-Driven Development (SDD), using agentic tools such as Cursor and GitHub Copilot to accelerate delivery.',
+                    'Rebuilt the bank’s mass debt collector from scratch for overdrafts, credit cards and loans, adding overdrafts, which the legacy process did not cover. It processes 5.7M+ debts a month (~170K a day).',
+                    'Delivered ~250K successful collections a month (PYG 12B+ and USD 78K+ recovered), using association algorithms that add accounts and salaries to each collection attempt.',
+                    'Built collections back-office tools (customer exclusions, refunds and reversals) across the stack: React micro-frontend, Kong API Gateway, BFF and microservices.',
+                    'Automated loan restructuring into a 100% digital, self-service flow, and migrated key collections services to modular monoliths organized by bounded context.',
+                    'Co-authored PRDs and RFCs with the Engineering Manager and PM to deliver with Spec-Driven Development (SDD) and agentic tools such as Cursor and GitHub Copilot.',
                 ],
                 tags: ['Java', 'Spring', 'AWS (SQS, S3, DocumentDB)', 'MongoDB', 'Redis', 'Kong', 'React', 'New Relic', 'SDD'],
             },
@@ -90,10 +87,9 @@ export const content = {
                 start: '2024-05',
                 end: '2025-07',
                 highlights: [
-                    'Led the backend team responsible for the microservices behind Coto’s digital platform: code reviews, mentoring and technical guidelines.',
-                    'Designed a Kafka-based messaging architecture for reliable communication between microservices.',
-                    'Implemented a centralized Redis cache strategy and shared libraries to standardize its use across services.',
-                    'Built a reusable .NET 8 microservice template and introduced end-to-end request tracing with Serilog and correlation IDs.',
+                    'Led the backend team behind Coto’s digital platform microservices: technical guidelines, code reviews and mentoring.',
+                    'Designed a Kafka-based messaging architecture and a centralized Redis cache strategy with shared libraries across services.',
+                    'Created a reusable .NET 8 microservice template and end-to-end request tracing with Serilog and correlation IDs.',
                 ],
                 tags: ['.NET 8', 'C#', 'Kafka', 'Redis', 'Docker', 'Microservices'],
             },
@@ -103,10 +99,9 @@ export const content = {
                 start: '2022-07',
                 end: '2024-05',
                 highlights: [
-                    'Designed and developed web applications and Docker-based .NET microservices integrated with Oracle and SQL Server.',
                     'Redesigned the store operations platform used by 2,000+ concurrent users in 40+ stores (picking, checkout, billing and reporting).',
-                    'Integrated automatic billing that issued 180,000+ invoices and vouchers, removing manual work and saving 500,000+ printed pages.',
-                    'Optimized complex Oracle and SQL Server queries and PL/SQL procedures for accounting and financial reporting.',
+                    'Integrated automatic billing that issued 180,000+ invoices and vouchers, saving 500,000+ printed pages.',
+                    'Built Docker-based .NET microservices on Oracle and SQL Server, and optimized complex queries and PL/SQL procedures for accounting and financial reporting.',
                 ],
                 tags: ['.NET', 'C#', 'Oracle', 'SQL Server', 'PL/SQL', 'Docker'],
             },
@@ -115,20 +110,18 @@ export const content = {
                 company: 'FACET — Universidad Nacional de Tucumán',
                 period: '2018 – 2019 · 2021 – 2023',
                 highlights: [
-                    'Computer Science, Programming I and Programming II: practical classes, office hours and final project tutoring.',
+                    'Taught practical classes and tutored final projects for Computer Science, Programming I and Programming II.',
                 ],
             },
             {
-                role: 'Substitute Teacher',
+                role: 'Substitute Teacher (Computer Science and Electronics)',
                 company: 'Instituto Técnico Salesiano Lorenzo Massa',
                 period: '2021',
-                highlights: ['Workshop teacher for Computer Science I and II, Computer-Aided Design and Industrial Electronics.'],
             },
             {
-                role: 'Electronic Instrumentation Intern',
+                role: 'Electronic Instrumentation Intern (PLC programming)',
                 company: 'San Miguel (citrus industry)',
                 period: '2015',
-                highlights: ['PLC programming and setup of digital and analog sensors in the electronic maintenance area.'],
             },
         ],
         education: [
@@ -281,11 +274,9 @@ export const content = {
             location: 'Tucumán, Argentina',
         },
         summary:
-            'Senior Software Engineer con más de 4 años de experiencia desarrollando sistemas backend con Java y .NET para banca y retail. ' +
-            'En ITTI, trabajando para ueno bank, rehice el cobrador masivo del banco, que hoy procesa más de 5,7 millones de deudas por mes entre sobregiros, tarjetas de crédito y préstamos. ' +
-            'Trabajo con un enfoque híbrido que combina la programación tradicional con el desarrollo agéntico guiado por Spec-Driven Development (SDD). ' +
-            'Antes fui Backend Tech Lead en Coto Digital, donde lideré el equipo backend y diseñé soluciones basadas en Kafka y Redis. ' +
-            'Me importan la arquitectura limpia, el rendimiento y escribir código que la próxima persona pueda entender fácilmente.',
+            'Senior Software Engineer con más de 4 años de experiencia desarrollando sistemas backend en Java y .NET para banca y retail. ' +
+            'En ITTI (cliente: ueno bank) rehice el cobrador masivo de deudas del banco, que hoy procesa más de 5,7 millones de deudas por mes, combinando desarrollo tradicional y agéntico guiado por Spec-Driven Development (SDD). ' +
+            'Ex Backend Tech Lead en Coto Digital. Me importan la arquitectura limpia, el rendimiento y que el código sea fácil de entender para la próxima persona.',
         experience: [
             {
                 role: 'Senior Software Engineer',
@@ -294,12 +285,11 @@ export const content = {
                 start: '2025-08',
                 end: null,
                 highlights: [
-                    'Rehice desde cero el cobrador masivo del banco, reemplazando un proceso anterior que no contemplaba sobregiros. Hoy procesa más de 5,7 millones de deudas en mora por mes (~170 mil por día) entre sobregiros, tarjetas de crédito y préstamos.',
-                    'Logré ~250 mil cobros exitosos por mes, recuperando más de PYG 12.000 millones y USD 78 mil, y diseñé algoritmos de asociación que suman cuentas y salarios a cada intento de cobro (244 mil asociaciones por mes).',
-                    'Desarrollé de punta a punta backoffices para la operación de cobros (exclusiones de clientes, reversiones y devoluciones): microfrontend en React, rutas en Kong API Gateway, BFF y microservicios backend.',
-                    'Automaticé la reestructuración de préstamos en un proceso 100% digital y autogestionado.',
-                    'Migré repositorios clave de cobranza de monolitos a monolitos modulares separados por bounded context, y creé endpoints centralizados de consulta de deuda y nuevos endpoints para la nueva home de la app (préstamos y margen disponible por usuario).',
-                    'Redacté PRDs y RFCs junto al Engineering Manager y al Product Manager para trabajar con Spec-Driven Development (SDD), usando herramientas agénticas como Cursor y GitHub Copilot para acelerar la entrega.',
+                    'Rehice desde cero el cobrador masivo de deudas del banco para sobregiros, tarjetas de crédito y préstamos, sumando los sobregiros que el proceso anterior no contemplaba. Procesa más de 5,7 millones de deudas por mes (~170 mil por día).',
+                    'Logré ~250 mil cobros exitosos por mes (más de PYG 12.000 millones y USD 78 mil recuperados) con algoritmos de asociación que suman cuentas y salarios a cada intento de cobro.',
+                    'Desarrollé backoffices para la operación de cobros (exclusiones de clientes, reversiones y devoluciones) en todo el stack: microfrontend en React, Kong API Gateway, BFF y microservicios.',
+                    'Automaticé la reestructuración de préstamos en un flujo 100% digital y autogestionado, y migré servicios clave de cobranza a monolitos modulares separados por bounded context.',
+                    'Redacté PRDs y RFCs junto al Engineering Manager y al PM para trabajar con Spec-Driven Development (SDD) y herramientas agénticas como Cursor y GitHub Copilot.',
                 ],
                 tags: ['Java', 'Spring', 'AWS (SQS, S3, DocumentDB)', 'MongoDB', 'Redis', 'Kong', 'React', 'New Relic', 'SDD'],
             },
@@ -309,10 +299,9 @@ export const content = {
                 start: '2024-05',
                 end: '2025-07',
                 highlights: [
-                    'Lideré el equipo backend responsable de los microservicios de la plataforma digital de Coto: code reviews, mentoría y lineamientos técnicos.',
-                    'Diseñé una arquitectura de mensajería basada en Kafka para la comunicación confiable entre microservicios.',
-                    'Implementé una estrategia de caché centralizada con Redis y librerías compartidas para estandarizar su uso.',
-                    'Creé un template reutilizable de microservicios en .NET 8 e incorporé trazabilidad de requests con Serilog y correlation IDs.',
+                    'Lideré el equipo backend de los microservicios de la plataforma digital de Coto: lineamientos técnicos, code reviews y mentoría.',
+                    'Diseñé una arquitectura de mensajería con Kafka y una estrategia de caché centralizada con Redis y librerías compartidas entre servicios.',
+                    'Creé un template reutilizable de microservicios en .NET 8 y trazabilidad de requests de punta a punta con Serilog y correlation IDs.',
                 ],
                 tags: ['.NET 8', 'C#', 'Kafka', 'Redis', 'Docker', 'Microservicios'],
             },
@@ -322,10 +311,9 @@ export const content = {
                 start: '2022-07',
                 end: '2024-05',
                 highlights: [
-                    'Diseñé y desarrollé aplicaciones web y microservicios .NET en Docker, integrados con Oracle y SQL Server.',
                     'Rediseñé la plataforma de operaciones de sucursales usada por más de 2.000 usuarios concurrentes en más de 40 tiendas (picking, caja, facturación y reportes).',
-                    'Integré facturación automática que emitió más de 180.000 facturas y comprobantes, eliminando trabajo manual y ahorrando más de 500.000 hojas impresas.',
-                    'Optimicé consultas complejas en Oracle y SQL Server y procedimientos PL/SQL para contabilidad y reportes financieros.',
+                    'Integré facturación automática que emitió más de 180.000 facturas y comprobantes, ahorrando más de 500.000 hojas impresas.',
+                    'Desarrollé microservicios .NET en Docker sobre Oracle y SQL Server, y optimicé consultas complejas y procedimientos PL/SQL para contabilidad y reportes financieros.',
                 ],
                 tags: ['.NET', 'C#', 'Oracle', 'SQL Server', 'PL/SQL', 'Docker'],
             },
@@ -334,20 +322,18 @@ export const content = {
                 company: 'FACET — Universidad Nacional de Tucumán',
                 period: '2018 – 2019 · 2021 – 2023',
                 highlights: [
-                    'Informática, Programación I y Programación II: dictado de clases prácticas, consultas y tutoría de proyectos finales.',
+                    'Dicté clases prácticas, consultas y tutorías de proyectos finales en Informática, Programación I y Programación II.',
                 ],
             },
             {
-                role: 'Docente reemplazante',
+                role: 'Docente reemplazante (Informática y Electrónica)',
                 company: 'Instituto Técnico Salesiano Lorenzo Massa',
                 period: '2021',
-                highlights: ['Profesor de taller en Informática I y II, Diseño Asistido y Electrónica Industrial.'],
             },
             {
-                role: 'Pasante en Instrumentación Electrónica',
+                role: 'Pasante en Instrumentación Electrónica (programación de PLC)',
                 company: 'San Miguel (industria citrícola)',
                 period: '2015',
-                highlights: ['Programación de PLC y configuración de sensores digitales y analógicos en el sector de mantenimiento electrónico.'],
             },
         ],
         education: [
@@ -402,8 +388,8 @@ export const content = {
                     title: 'ITTI — ueno bank',
                     period: '2025 – Actualidad',
                     items: [
-                        'Rehice desde cero el cobrador masivo del banco, rediseñando el proceso anterior y sumando los sobregiros, que no contemplaba. Cubre sobregiros, tarjetas de crédito y préstamos de clientes en mora.',
-                        'El nuevo cobrador procesa más de 5,7 millones de deudas por mes (~170 mil por día): 2,27 millones de sobregiros, 1,81 millones de deudas de tarjetas y 1,62 millones de deudas de préstamos.',
+                        'Rehice desde cero el cobrador masivo de deudas del banco, rediseñando el proceso anterior y sumando los sobregiros, que no contemplaba. Cubre sobregiros, tarjetas de crédito y préstamos de clientes en mora.',
+                        'El nuevo cobrador masivo de deudas procesa más de 5,7 millones de deudas por mes (~170 mil por día): 2,27 millones de sobregiros, 1,81 millones de deudas de tarjetas y 1,62 millones de deudas de préstamos.',
                         'Alcanzó ~250 mil cobros exitosos por mes, recuperando de forma automática más de PYG 12.000 millones y USD 78 mil, incluidos 184 mil pagos parciales de cuotas de préstamos.',
                         'Diseñé algoritmos de asociación que suman cuentas y salarios a cada intento de cobro, con 244 mil asociaciones creadas por mes para aumentar la recuperación.',
                         'Desarrollé de punta a punta backoffices para la operación de cobros (exclusiones de clientes, reversiones y devoluciones): microfrontend en React, rutas en Kong API Gateway, BFF y microservicios backend.',

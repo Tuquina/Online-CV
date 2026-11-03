@@ -76,7 +76,7 @@ const job = (j, tr) => `
         </header>
         <p class="job__company">${esc(j.company)}</p>
         ${j.context ? `<p class="job__context">${esc(j.context)}</p>` : ''}
-        ${list(j.highlights, esc, 'bullets')}
+        ${j.highlights ? list(j.highlights, esc, 'bullets') : ''}
         ${j.tags ? list(j.tags, esc, 'tags') : ''}
     </article>`;
 
