@@ -1,24 +1,30 @@
 # Fernando Nahuel Tuquina
 
-> Senior Software Engineer (backend) based in Tucumán, Argentina. Currently at ITTI working for ueno bank (Lending tribe, Collections team). Former Backend Tech Lead at Coto Digital. Spanish (native), English (intermediate).
+> Senior Software Engineer (backend with Java and .NET) based in Tucumán, Argentina. Currently at ITTI working for ueno bank (Lending tribe, Collections team). Former Backend Tech Lead at Coto Digital. Spanish (native), English (intermediate).
 
-The interactive CV is available in Spanish (`/?lang=es`) and English (`/?lang=en`). The "Download" menu generates text-based PDFs of the resume, the achievements and the cover letter.
+The interactive resume is in English by default (`/?lang=en`) and also available in Spanish (`/?lang=es`). The "Download" menu generates text-based PDFs of the resume, the achievements and the cover letter.
 
 ## Experience
 
-- Senior Software Engineer — ITTI, client ueno bank (Aug 2025 – present). Backend services for the loan collections domain. Hybrid methodology combining traditional and agentic development with Spec-Driven Development (SDD), using Cursor and GitHub Copilot.
+- Senior Software Engineer — ITTI, client ueno bank (Aug 2025 – present).
+  - Rebuilt the bank's mass debt collector from scratch (overdrafts, credit cards and loans): 5.7M+ debts processed a month (~170K a day), ~250K successful collections a month, PYG 12B+ and USD 78K+ recovered monthly, 244K account and salary associations a month.
+  - Back-office tools for collections (customer exclusions, refunds and reversals): React micro-frontend, Kong API Gateway routes, BFF and backend microservices.
+  - 100% digital, self-service loan restructuring; modular monoliths by bounded context; centralized debt-inquiry endpoints; endpoints for the new app home; MCP server design for loan-debt inquiries.
+  - AWS (SQS, S3, DocumentDB), MongoDB, Redis distributed locks, GitHub Actions, Nullplatform, New Relic (NRQL), Jira.
+  - PRDs and RFCs with the Engineering Manager and PM; hybrid traditional and agentic development with Spec-Driven Development (SDD), Cursor and GitHub Copilot.
 - Backend Tech Lead — Coto Digital (May 2024 – Jul 2025). Led the backend team; Kafka messaging architecture, centralized Redis caching, .NET 8 microservice template, Serilog request tracing.
 - .NET Programmer Analyst — Coto (Jul 2022 – May 2024). .NET microservices in Docker with Oracle and SQL Server; store operations platform for 2,000+ concurrent users in 40+ stores; automatic billing (180,000+ invoices).
 - Teaching Assistant — FACET, Universidad Nacional de Tucumán (2018 – 2019, 2021 – 2023).
 
 ## Skills
 
-C#, .NET 8, Java, REST APIs, microservices, Clean Architecture, Oracle, SQL Server, MySQL, PL/SQL, Redis, Kafka, Docker, Git, Linux, unit testing, code review, Agile/Scrum, Spec-Driven Development, Cursor, GitHub Copilot.
+Java, Spring, C#, .NET 8, JavaScript, React, microservices, modular monoliths, DDD bounded contexts, Clean Architecture, REST APIs, BFF, Kong, AWS (SQS, S3, DocumentDB), Kafka, Redis, MongoDB, Oracle, SQL Server, MySQL, PL/SQL, Docker, GitHub Actions, Nullplatform, New Relic (NRQL), Git, Linux, unit testing, code review, Agile/Scrum, Jira, Spec-Driven Development, Cursor, GitHub Copilot, MCP.
 
-## Education
+## Education and certifications
 
 - Computer Engineering (in progress) — Universidad Nacional de Tucumán (2017 – present)
 - Electronics Technician — Instituto Técnico Salesiano Lorenzo Massa (2009 – 2015)
+- Generative AI Fundamentals on AWS — AWS (2026)
 
 ## Contact
 

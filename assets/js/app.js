@@ -4,6 +4,7 @@ import { formatMonth, formatPeriod, formatToday, prettyUrl } from './format.js';
 /*==================== STATE ====================*/
 const VIEWS = ['cv', 'achievements', 'cover-letter'];
 const DEFAULT_VIEW = 'cv';
+const DEFAULT_LANG = 'en';
 
 const storage = {
     get(key) {
@@ -18,8 +19,7 @@ const detectLang = () => {
     const fromUrl = new URLSearchParams(location.search).get('lang');
     if (LANGS.includes(fromUrl)) return fromUrl;
     const saved = storage.get('lang');
-    if (LANGS.includes(saved)) return saved;
-    return (navigator.language || '').toLowerCase().startsWith('es') ? 'es' : 'en';
+    return LANGS.includes(saved) ? saved : DEFAULT_LANG;
 };
 
 const detectView = () => {
@@ -48,7 +48,6 @@ const contactItems = (b) => [
     { icon: 'phone', label: b.phone, href: `tel:${b.phone.replace(/\s/g, '')}` },
     { icon: 'linkedin', label: 'LinkedIn', href: b.linkedin },
     { icon: 'github', label: prettyUrl(b.github), href: b.github },
-    { icon: 'globe', label: prettyUrl(b.website), href: b.website },
 ];
 
 const contactList = (b) =>
