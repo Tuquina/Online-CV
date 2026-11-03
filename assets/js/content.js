@@ -73,8 +73,8 @@ export const content = {
                 start: '2025-08',
                 end: null,
                 highlights: [
-                    'Rebuilt the bank’s mass debt collector from scratch for overdrafts, credit cards and loans, adding overdrafts, which the legacy process did not cover. It processes 5.7M+ debts a month (~170K a day).',
-                    'Delivered ~250K successful collections a month (PYG 12B+ and USD 78K+ recovered), using association algorithms that add accounts and salaries to each collection attempt.',
+                    'Rebuilt the bank’s mass debt collector from scratch in Java and Spring, adding overdrafts (not covered by the legacy process) to credit cards and loans; it now processes 5.7M+ debts a month (~170K a day).',
+                    'Drove ~250K successful collections a month (PYG 12B+ and USD 78K+ recovered) with association algorithms that add accounts and salaries to each collection attempt.',
                     'Built collections back-office tools (customer exclusions, refunds and reversals) across the stack: React micro-frontend, Kong API Gateway, BFF and microservices.',
                     'Automated loan restructuring into a 100% digital, self-service flow, and migrated key collections services to modular monoliths organized by bounded context.',
                     'Co-authored PRDs and RFCs with the Engineering Manager and PM to deliver with Spec-Driven Development (SDD) and agentic tools such as Cursor and GitHub Copilot.',
@@ -151,7 +151,6 @@ export const content = {
             { name: 'React: Hooks, Context, Redux and MERN', issuer: 'Udemy', year: '2022' },
             { name: 'JavaScript Algorithms and Data Structures', issuer: 'freeCodeCamp', year: '2022' },
             { name: 'Responsive Web Design', issuer: 'freeCodeCamp', year: '2022' },
-            { name: 'Educational Robotics Workshop for Teachers', issuer: 'UTN', year: '2018' },
         ],
         languages: [
             { name: 'Spanish', level: 'Native' },
@@ -285,7 +284,7 @@ export const content = {
                 start: '2025-08',
                 end: null,
                 highlights: [
-                    'Rehice desde cero el cobrador masivo de deudas del banco para sobregiros, tarjetas de crédito y préstamos, sumando los sobregiros que el proceso anterior no contemplaba. Procesa más de 5,7 millones de deudas por mes (~170 mil por día).',
+                    'Rehice desde cero en Java y Spring el cobrador masivo de deudas del banco, sumando los sobregiros (que el proceso anterior no contemplaba) a tarjetas de crédito y préstamos; hoy procesa más de 5,7 millones de deudas por mes (~170 mil por día).',
                     'Logré ~250 mil cobros exitosos por mes (más de PYG 12.000 millones y USD 78 mil recuperados) con algoritmos de asociación que suman cuentas y salarios a cada intento de cobro.',
                     'Desarrollé backoffices para la operación de cobros (exclusiones de clientes, reversiones y devoluciones) en todo el stack: microfrontend en React, Kong API Gateway, BFF y microservicios.',
                     'Automaticé la reestructuración de préstamos en un flujo 100% digital y autogestionado, y migré servicios clave de cobranza a monolitos modulares separados por bounded context.',
@@ -363,7 +362,6 @@ export const content = {
             { name: 'Curso de React (Hooks, Context, Redux, MERN)', issuer: 'Udemy', year: '2022' },
             { name: 'JavaScript Algorithms and Data Structures', issuer: 'freeCodeCamp', year: '2022' },
             { name: 'Responsive Web Design', issuer: 'freeCodeCamp', year: '2022' },
-            { name: 'Taller de Robótica Educativa para Docentes', issuer: 'UTN', year: '2018' },
         ],
         languages: [
             { name: 'Español', level: 'Nativo' },

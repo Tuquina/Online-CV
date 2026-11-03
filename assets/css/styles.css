@@ -895,9 +895,127 @@ button {
     }
 }
 
+/*==================== MOTION ====================*/
+:root {
+    --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pop-in {
+    from {
+        opacity: 0;
+        transform: translateY(-6px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* Each view fades in when it is rendered (first load, tab or language change) */
+.page > .sheet {
+    animation: fade-up 0.45s var(--ease-out) both;
+}
+
+.menu:not([hidden]) {
+    transform-origin: top right;
+    animation: pop-in 0.16s var(--ease-out);
+}
+
+.bottom-nav__sheet:not([hidden]) {
+    animation: fade-up 0.24s var(--ease-out);
+}
+
+.bottom-nav__backdrop:not([hidden]) {
+    animation: fade-in 0.2s ease-out;
+}
+
+.toast:not([hidden]) {
+    animation: fade-in 0.2s ease-out;
+}
+
+/* Scroll reveal: app.js adds .reveal-ready only when motion is allowed */
+.reveal-ready .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.55s var(--ease-out), transform 0.55s var(--ease-out);
+    transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal-ready .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* Smooth theme switch and small hover feedback */
+body,
+.topbar,
+.sheet,
+.bottom-nav,
+.menu {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.btn {
+    transition: background-color 0.15s, border-color 0.15s, transform 0.15s var(--ease-out), box-shadow 0.15s;
+}
+
+.btn--primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgb(30 58 138 / 0.25);
+}
+
+.btn:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.tags li {
+    transition: border-color 0.15s, color 0.15s;
+}
+
+.tags li:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.job::before {
+    transition: transform 0.2s var(--ease-out);
+}
+
+.job:hover::before {
+    transform: scale(1.2);
+}
+
 @media (prefers-reduced-motion: reduce) {
-    * {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
         transition: none !important;
+    }
+
+    .reveal-ready .reveal {
+        opacity: 1;
+        transform: none;
     }
 }
 
@@ -947,6 +1065,13 @@ button {
 
     .letter__signature {
         filter: none !important;
+    }
+
+    .page > .sheet,
+    .reveal-ready .reveal {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
     }
 
     .job,
