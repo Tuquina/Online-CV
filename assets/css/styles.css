@@ -192,6 +192,7 @@ button {
 }
 
 .tabs {
+    position: relative;
     grid-area: tabs;
     display: grid;
     grid-auto-flow: column;
@@ -203,6 +204,8 @@ button {
 }
 
 .tabs__item {
+    position: relative;
+    z-index: 1;
     padding: 6px 10px;
     border-radius: 7px;
     color: var(--text-muted);
@@ -234,10 +237,14 @@ button {
     }
 }
 
-.tabs__item[aria-current="page"] {
+.tabs:not(.tabs--ready) .tabs__item[aria-current="page"] {
     background: var(--surface);
     color: var(--text);
     box-shadow: 0 1px 2px rgb(15 23 42 / 0.08);
+}
+
+.tabs__item[aria-current="page"] {
+    color: var(--text);
 }
 
 .actions {
@@ -941,12 +948,113 @@ button {
     animation: pop-in 0.16s var(--ease-out);
 }
 
-.bottom-nav__sheet:not([hidden]) {
-    animation: fade-up 0.24s var(--ease-out);
+/* Mobile sections menu: the panel slides up, items cascade in, the icon spins */
+@keyframes sheet-in {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes sheet-out {
+    to {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+@keyframes item-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.94);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes spin-in {
+    from {
+        opacity: 0;
+        transform: rotate(-90deg) scale(0.6);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.bottom-nav.is-open .bottom-nav__sheet {
+    animation: sheet-in 0.3s var(--ease-out);
+}
+
+.bottom-nav.is-open:not(.is-closing) .sheet-item {
+    animation: item-in 0.34s var(--ease-out) both;
+    animation-delay: calc(var(--i, 0) * 22ms + 60ms);
+}
+
+.bottom-nav.is-open:not(.is-closing) .icon--close {
+    animation: spin-in 0.28s var(--ease-out);
+}
+
+.bottom-nav.is-closing .bottom-nav__sheet {
+    animation: sheet-out 0.18s ease-in forwards;
 }
 
 .bottom-nav__backdrop:not([hidden]) {
-    animation: fade-in 0.2s ease-out;
+    animation: fade-in 0.22s ease-out;
+}
+
+.bottom-nav.is-closing + .bottom-nav__backdrop {
+    animation: fade-in 0.18s ease-in reverse forwards;
+}
+
+.sheet-item {
+    transition: background-color 0.15s, color 0.15s, transform 0.15s var(--ease-out);
+}
+
+.sheet-item:active {
+    transform: scale(0.94);
+}
+
+/* Navigation: the destination section title glows briefly on arrival */
+@keyframes title-focus {
+    0%,
+    100% {
+        background: transparent;
+        box-shadow: 0 0 0 6px transparent;
+    }
+    20%,
+    70% {
+        background: var(--accent-soft);
+        box-shadow: 0 0 0 6px var(--accent-soft);
+    }
+}
+
+.block.is-target > .block__title {
+    border-radius: 4px;
+    animation: title-focus 1.6s ease-out;
+}
+
+/* Top tabs: a pill slides to the active tab */
+.tabs__indicator {
+    position: absolute;
+    top: 3px;
+    bottom: 3px;
+    left: 0;
+    width: 0;
+    border-radius: 7px;
+    background: var(--surface);
+    box-shadow: 0 1px 2px rgb(15 23 42 / 0.08);
+}
+
+.tabs--ready .tabs__indicator {
+    transition: transform 0.32s var(--ease-out), width 0.32s var(--ease-out), background-color 0.3s;
 }
 
 .toast:not([hidden]) {
