@@ -275,11 +275,39 @@ function renderChrome() {
         `<span>${esc(tr.ui.lastUpdated)}: ${esc(formatMonth(LAST_UPDATED, tr))}</span>`;
 }
 
+/*==================== SCROLL REVEAL ====================*/
+const REVEAL_TARGETS = [
+    '.block__title', '.summary', '.job', '.edu', '.skill-group', '.pairs', '.certs', '.plain',
+    '.doc__title', '.doc__intro', '.bullets--spaced li', '.letter > p', '.letter__sign',
+].join(',');
+
+const motionAllowed = window.matchMedia('(prefers-reduced-motion: no-preference)').matches && 'IntersectionObserver' in window;
+let revealObserver;
+
+function setupReveal() {
+    if (!motionAllowed) return;
+    document.documentElement.classList.add('reveal-ready');
+    revealObserver?.disconnect();
+    revealObserver = new IntersectionObserver((entries) => {
+        // Elements entering together appear one after another.
+        entries.filter((entry) => entry.isIntersecting).forEach((entry, index) => {
+            entry.target.style.setProperty('--reveal-delay', `${Math.min(index * 60, 300)}ms`);
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+        });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    main.querySelectorAll(REVEAL_TARGETS).forEach((el) => {
+        el.classList.add('reveal');
+        revealObserver.observe(el);
+    });
+}
+
 function render() {
     renderChrome();
     main.innerHTML = RENDERERS[state.view](t());
     activeSection = 'top';
     renderBottomNav();
+    setupReveal();
 }
 
 function setLang(lang) {
