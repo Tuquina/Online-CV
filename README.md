@@ -12,7 +12,7 @@ Online resume of **Fernando Nahuel Tuquina**, Senior Software Engineer.
 - **Three views:** Resume (`#cv`), Achievements (`#achievements`) and Cover letter (`#cover-letter`).
 - **Downloads:** the *Download* menu generates three separate PDFs in the active language: resume, achievements and cover letter.
 - **ATS and AI friendly PDFs:** single column, standard section headings and real, selectable text (not images), with title, author and keywords in the PDF metadata.
-- **Responsive:** works from 320 px phones to desktop, without horizontal scrolling.
+- **Responsive:** works from 320 px phones to desktop, without horizontal scrolling. On phones and tablets a bottom bar opens a sections menu (profile, experience, skills… plus achievements and cover letter).
 - **Light and dark themes:** follows the system setting, with a manual toggle.
 - **Lightweight:** plain HTML, CSS and JavaScript modules, inline SVG icons, no build step. The PDF library (jsPDF) is only loaded when someone clicks *Download*.
 - **Readable by search engines and AI assistants:** schema.org `Person` data in `index.html` and a plain-text summary in `llms.txt`.
@@ -58,6 +58,7 @@ The repository is linked to the Vercel project **online-cv**:
 
 - Every push to `master` deploys to production.
 - Every pull request gets its own preview URL.
+- `.github/workflows/codex-auto-merge.yml` merges a pull request automatically when the Codex review finishes with no unresolved findings on the latest commit. If Codex reports findings, the PR stays open for a manual review.
 
 No build command or framework is configured; Vercel serves the files as they are.
 
