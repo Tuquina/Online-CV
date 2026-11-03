@@ -93,7 +93,10 @@ class Writer {
 
     bullets(items, { size = 9.8, gap = 2.5 } = {}) {
         items.forEach((item) => {
-            this.ensure(size * 1.4);
+            // Keep each bullet on one page instead of splitting it.
+            this.font(size);
+            const lines = this.doc.splitTextToSize(item, CONTENT_W - 14).length;
+            this.ensure(lines * size * 1.4);
             this.font(size, 'normal', COLOR.accent);
             this.doc.text('•', MARGIN_X + 3, this.y + size * 0.8);
             this.paragraph(item, { size, indent: 14 });
@@ -146,7 +149,7 @@ class Writer {
 
         const rows = [
             [{ text: b.location }, { text: b.email, url: `mailto:${b.email}` }, { text: b.phone, url: `tel:${b.phone.replace(/\s/g, '')}` }],
-            [{ text: prettyUrl(b.linkedin), url: b.linkedin }, { text: prettyUrl(b.github), url: b.github }, { text: prettyUrl(b.website), url: b.website }],
+            [{ text: prettyUrl(b.linkedin), url: b.linkedin }, { text: prettyUrl(b.github), url: b.github }],
         ];
         this.font(9.2, 'normal', COLOR.muted);
         const separator = '  |  ';
@@ -290,7 +293,7 @@ export async function createPdf(kind, t) {
         subject: `${t.basics.headline}. ${t.basics.location}.`,
         author: t.basics.name,
         keywords: t.skills.flatMap((g) => g.items).join(', '),
-        creator: t.basics.website,
+        creator: t.basics.name,
     });
     doc.setLanguage(t.locale === 'es' ? 'es-AR' : 'en-US');
 
