@@ -191,9 +191,9 @@ let activeSection = 'top';
 function renderBottomNav() {
     const tr = t();
     bottomNav.setAttribute('aria-label', tr.ui.nav.label);
-    bottomSheet.innerHTML = NAV_ITEMS.map((item) => {
+    bottomSheet.innerHTML = NAV_ITEMS.map((item, index) => {
         const data = item.view ? `data-view-target="${item.view}"` : `data-section="${item.section}"`;
-        return `<button class="sheet-item" type="button" ${data}>${icon(item.icon)}<span>${esc(item.label(tr))}</span></button>`;
+        return `<button class="sheet-item" type="button" style="--i: ${index}" ${data}>${icon(item.icon)}<span>${esc(item.label(tr))}</span></button>`;
     }).join('');
     updateBottomNavActive();
     setSheet(false);
@@ -210,19 +210,62 @@ function updateBottomNavActive() {
     });
 }
 
+const prefersMotion = () => window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
+const SHEET_CLOSE_MS = 180; // matches the sheet-out animation in styles.css
+let sheetTimer;
+
+const isSheetOpen = () => bottomNav.classList.contains('is-open') && !bottomNav.classList.contains('is-closing');
+
 function setSheet(open) {
-    bottomSheet.hidden = !open;
-    bottomBackdrop.hidden = !open;
-    bottomNav.classList.toggle('is-open', open);
+    clearTimeout(sheetTimer);
     bottomToggle.setAttribute('aria-expanded', String(open));
     bottomToggle.setAttribute('aria-label', open ? t().ui.nav.close : t().ui.nav.open);
+
+    if (open) {
+        bottomNav.classList.remove('is-closing');
+        bottomSheet.hidden = false;
+        bottomBackdrop.hidden = false;
+        bottomNav.classList.add('is-open');
+        return;
+    }
+
+    const finish = () => {
+        bottomSheet.hidden = true;
+        bottomBackdrop.hidden = true;
+        bottomNav.classList.remove('is-open', 'is-closing');
+    };
+    // Play the closing animation before hiding the panel.
+    if (bottomSheet.hidden || !prefersMotion()) return finish();
+    bottomNav.classList.add('is-closing');
+    sheetTimer = setTimeout(finish, SHEET_CLOSE_MS);
 }
 
+let focusTimer;
 const scrollToSection = (id) => {
     const target = id === 'top' ? null : document.getElementById(id);
     const top = target ? target.getBoundingClientRect().top + window.scrollY - topbar.offsetHeight - 12 : 0;
     window.scrollTo({ top, behavior: 'smooth' });
+    if (!target) return;
+    // Briefly highlight the destination so the jump is easy to follow.
+    clearTimeout(focusTimer);
+    document.querySelectorAll('.block.is-target').forEach((el) => el.classList.remove('is-target'));
+    void target.offsetWidth; // restart the animation when the same section is chosen twice
+    target.classList.add('is-target');
+    focusTimer = setTimeout(() => target.classList.remove('is-target'), 1700);
 };
+
+/*==================== TABS INDICATOR ====================*/
+const tabs = $('.tabs');
+const tabsIndicator = $('.tabs__indicator');
+
+function moveTabsIndicator() {
+    const active = tabs.querySelector('[aria-current="page"]');
+    if (!active) return;
+    tabsIndicator.style.width = `${active.offsetWidth}px`;
+    tabsIndicator.style.transform = `translateX(${active.offsetLeft}px)`;
+    // Enable the slide only after the first placement, so it does not animate in from the left on load.
+    if (!tabs.classList.contains('tabs--ready')) requestAnimationFrame(() => tabs.classList.add('tabs--ready'));
+}
 
 // Highlights the CV section currently under the top bar.
 function trackActiveSection() {
@@ -254,6 +297,7 @@ function renderChrome() {
             `<span class="tabs__short">${esc(tr.ui.viewsShort[key[view]])}</span>`;
         tab.setAttribute('aria-current', view === state.view ? 'page' : 'false');
     });
+    moveTabsIndicator();
 
     // Actions
     const langBtn = $('#lang-toggle');
@@ -328,8 +372,11 @@ window.addEventListener('hashchange', () => {
 
 $('#lang-toggle').addEventListener('click', () => setLang(state.lang === 'es' ? 'en' : 'es'));
 
+window.addEventListener('resize', moveTabsIndicator);
+document.fonts?.ready.then(moveTabsIndicator);
+
 // Mobile sections menu
-bottomToggle.addEventListener('click', () => setSheet(bottomSheet.hidden));
+bottomToggle.addEventListener('click', () => setSheet(!isSheetOpen()));
 bottomBackdrop.addEventListener('click', () => setSheet(false));
 
 bottomSheet.addEventListener('click', (event) => {
@@ -376,7 +423,7 @@ document.addEventListener('click', (event) => {
 });
 
 document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && !bottomSheet.hidden) {
+    if (event.key === 'Escape' && isSheetOpen()) {
         setSheet(false);
         bottomToggle.focus();
     }
