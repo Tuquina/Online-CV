@@ -1,0 +1,67 @@
+# Merges a pull request automatically once the Codex review finishes clean.
+#
+# Codex keeps a "Codex Review Summary" comment on every PR and edits it as the
+# review progresses. Its state lives in a hidden marker:
+#   <!-- codex-review-state:v1 {"code_review":{"status":"completed","has_unresolved_findings":false,...}} -->
+# When the code review is completed, has no unresolved findings and covers the
+# PR's latest commit, the PR is merged. Otherwise it is left open for a human.
+#
+# Note: issue_comment workflows always run from the default branch, so changes
+# to this file only take effect after they are merged into master.
+
+name: Auto-merge after Codex review
+
+on:
+  issue_comment:
+    types: [created, edited]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: codex-auto-merge-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  merge:
+    if: >-
+      github.event.issue.pull_request &&
+      github.event.issue.state == 'open' &&
+      github.event.comment.user.login == 'chatgpt-codex-connector[bot]' &&
+      contains(github.event.comment.body, 'codex-review-state:v1')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read the Codex review state
+        id: state
+        env:
+          BODY: ${{ github.event.comment.body }}
+        run: |
+          json=$(printf '%s\n' "$BODY" | sed -n 's/.*codex-review-state:v1 \({.*}\) -->.*/\1/p' | head -n 1)
+          if [ -z "$json" ]; then
+            echo "No Codex review state in this comment."
+            echo "status=none" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "status=$(jq -r '.code_review.status // "none"' <<< "$json")" >> "$GITHUB_OUTPUT"
+          echo "findings=$(jq -r '.code_review.has_unresolved_findings // false' <<< "$json")" >> "$GITHUB_OUTPUT"
+          echo "sha=$(jq -r '.code_review.commit_sha // ""' <<< "$json")" >> "$GITHUB_OUTPUT"
+          echo "Codex review state: $json"
+
+      - name: Merge the pull request
+        if: steps.state.outputs.status == 'completed' && steps.state.outputs.findings == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ github.event.issue.number }}
+          REVIEWED_SHA: ${{ steps.state.outputs.sha }}
+        run: |
+          head=$(gh pr view "$PR" --repo "$GITHUB_REPOSITORY" --json headRefOid --jq .headRefOid)
+          if [ "$head" != "$REVIEWED_SHA" ]; then
+            echo "Codex reviewed $REVIEWED_SHA but the PR head is $head. Not merging."
+            exit 0
+          fi
+          gh pr merge "$PR" --repo "$GITHUB_REPOSITORY" --merge --match-head-commit "$head"
+
+      - name: Leave the pull request open
+        if: steps.state.outputs.status == 'completed' && steps.state.outputs.findings != 'false'
+        run: echo "Codex reported unresolved findings. Review them and merge by hand."

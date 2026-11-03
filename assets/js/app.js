@@ -39,8 +39,8 @@ const icon = (name) => `<svg class="icon" aria-hidden="true"><use href="#i-${nam
 const list = (items, render, className = '') =>
     `<ul class="${className}">${items.map((item) => `<li>${render(item)}</li>`).join('')}</ul>`;
 
-const section = (title, body, className = '') =>
-    `<section class="block ${className}"><h2 class="block__title">${esc(title)}</h2>${body}</section>`;
+const section = (title, body, id) =>
+    `<section class="block" id="${id}"><h2 class="block__title">${esc(title)}</h2>${body}</section>`;
 
 const contactItems = (b) => [
     { icon: 'pin', label: b.location },
@@ -83,8 +83,8 @@ const job = (j, tr) => `
 const renderCv = (tr) => {
     const s = tr.ui.sections;
     const main = [
-        section(s.summary, `<p class="summary">${esc(tr.summary)}</p>`),
-        section(s.experience, `<div class="timeline">${tr.experience.map((j) => job(j, tr)).join('')}</div>`),
+        section(s.summary, `<p class="summary">${esc(tr.summary)}</p>`, 'profile'),
+        section(s.experience, `<div class="timeline">${tr.experience.map((j) => job(j, tr)).join('')}</div>`, 'experience'),
         section(s.education, tr.education.map((e) => `
             <div class="edu">
                 <div class="job__head">
@@ -92,7 +92,7 @@ const renderCv = (tr) => {
                     <span class="job__period">${esc(e.period)}</span>
                 </div>
                 <p class="job__company">${esc(e.school)}</p>
-            </div>`).join('')),
+            </div>`).join(''), 'education'),
     ].join('');
 
     const aside = [
@@ -100,13 +100,13 @@ const renderCv = (tr) => {
             <div class="skill-group">
                 <h3 class="skill-group__title">${esc(g.group)}</h3>
                 ${list(g.items, esc, 'tags')}
-            </div>`).join('')),
-        section(s.languages, list(tr.languages, (l) => `<span>${esc(l.name)}</span><span class="muted">${esc(l.level)}</span>`, 'pairs')),
+            </div>`).join(''), 'skills'),
+        section(s.languages, list(tr.languages, (l) => `<span>${esc(l.name)}</span><span class="muted">${esc(l.level)}</span>`, 'pairs'), 'languages'),
         section(s.certifications, list(tr.certifications, (c) => `
             <span class="cert__name">${esc(c.name)}</span>
-            <span class="muted">${esc([c.issuer, c.year].filter(Boolean).join(' · '))}</span>`, 'certs')),
-        section(s.competencies, list(tr.competencies, esc, 'plain')),
-        section(s.interests, list(tr.interests, esc, 'plain')),
+            <span class="muted">${esc([c.issuer, c.year].filter(Boolean).join(' · '))}</span>`, 'certs'), 'certifications'),
+        section(s.competencies, list(tr.competencies, esc, 'plain'), 'competencies'),
+        section(s.interests, list(tr.interests, esc, 'plain'), 'interests'),
     ].join('');
 
     return `
@@ -164,6 +164,79 @@ const main = $('#main');
 const downloadToggle = $('#download-toggle');
 const downloadMenu = $('#download-menu');
 const toast = $('#toast');
+const topbar = $('.topbar');
+const bottomNav = $('#bottom-nav');
+const bottomSheet = $('#bottom-sheet');
+const bottomToggle = $('#bottom-toggle');
+const bottomBackdrop = $('#bottom-backdrop');
+
+/*==================== MOBILE SECTIONS MENU ====================*/
+// CV sections jump within the resume; the last two items switch views.
+const NAV_ITEMS = [
+    { section: 'top', icon: 'home', label: (tr) => tr.ui.nav.home },
+    { section: 'profile', icon: 'user', label: (tr) => tr.ui.sections.summary },
+    { section: 'experience', icon: 'briefcase', label: (tr) => tr.ui.sections.experience },
+    { section: 'education', icon: 'book', label: (tr) => tr.ui.sections.education },
+    { section: 'skills', icon: 'code', label: (tr) => tr.ui.sections.skills },
+    { section: 'certifications', icon: 'award', label: (tr) => tr.ui.sections.certifications },
+    { section: 'languages', icon: 'globe', label: (tr) => tr.ui.sections.languages },
+    { section: 'competencies', icon: 'users', label: (tr) => tr.ui.sections.competencies },
+    { section: 'interests', icon: 'heart', label: (tr) => tr.ui.sections.interests },
+    { view: 'achievements', icon: 'trophy', label: (tr) => tr.ui.views.achievements },
+    { view: 'cover-letter', icon: 'letter', label: (tr) => tr.ui.views.coverLetter },
+];
+
+let activeSection = 'top';
+
+function renderBottomNav() {
+    const tr = t();
+    bottomNav.setAttribute('aria-label', tr.ui.nav.label);
+    bottomSheet.innerHTML = NAV_ITEMS.map((item) => {
+        const data = item.view ? `data-view-target="${item.view}"` : `data-section="${item.section}"`;
+        return `<button class="sheet-item" type="button" ${data}>${icon(item.icon)}<span>${esc(item.label(tr))}</span></button>`;
+    }).join('');
+    updateBottomNavActive();
+    setSheet(false);
+}
+
+function updateBottomNavActive() {
+    bottomSheet.querySelectorAll('.sheet-item').forEach((item) => {
+        const active = item.dataset.viewTarget
+            ? item.dataset.viewTarget === state.view
+            : state.view === 'cv' && item.dataset.section === activeSection;
+        item.classList.toggle('is-active', active);
+        if (active) item.setAttribute('aria-current', 'true');
+        else item.removeAttribute('aria-current');
+    });
+}
+
+function setSheet(open) {
+    bottomSheet.hidden = !open;
+    bottomBackdrop.hidden = !open;
+    bottomNav.classList.toggle('is-open', open);
+    bottomToggle.setAttribute('aria-expanded', String(open));
+    bottomToggle.setAttribute('aria-label', open ? t().ui.nav.close : t().ui.nav.open);
+}
+
+const scrollToSection = (id) => {
+    const target = id === 'top' ? null : document.getElementById(id);
+    const top = target ? target.getBoundingClientRect().top + window.scrollY - topbar.offsetHeight - 12 : 0;
+    window.scrollTo({ top, behavior: 'smooth' });
+};
+
+// Highlights the CV section currently under the top bar.
+function trackActiveSection() {
+    if (state.view !== 'cv') return;
+    const line = topbar.offsetHeight + 80;
+    let current = 'top';
+    document.querySelectorAll('.cv section[id]').forEach((sectionEl) => {
+        if (sectionEl.getBoundingClientRect().top <= line) current = sectionEl.id;
+    });
+    if (current !== activeSection) {
+        activeSection = current;
+        updateBottomNavActive();
+    }
+}
 
 function renderChrome() {
     const tr = t();
@@ -205,6 +278,8 @@ function renderChrome() {
 function render() {
     renderChrome();
     main.innerHTML = RENDERERS[state.view](t());
+    activeSection = 'top';
+    renderBottomNav();
 }
 
 function setLang(lang) {
@@ -224,6 +299,33 @@ window.addEventListener('hashchange', () => {
 });
 
 $('#lang-toggle').addEventListener('click', () => setLang(state.lang === 'es' ? 'en' : 'es'));
+
+// Mobile sections menu
+bottomToggle.addEventListener('click', () => setSheet(bottomSheet.hidden));
+bottomBackdrop.addEventListener('click', () => setSheet(false));
+
+bottomSheet.addEventListener('click', (event) => {
+    const item = event.target.closest('.sheet-item');
+    if (!item) return;
+    setSheet(false);
+    if (item.dataset.viewTarget) {
+        if (item.dataset.viewTarget === state.view) window.scrollTo({ top: 0, behavior: 'smooth' });
+        else location.hash = item.dataset.viewTarget;
+        return;
+    }
+    if (state.view !== 'cv') {
+        state.view = 'cv';
+        history.pushState(null, '', '#cv');
+        render();
+    }
+    scrollToSection(item.dataset.section);
+});
+
+let spyFrame;
+window.addEventListener('scroll', () => {
+    cancelAnimationFrame(spyFrame);
+    spyFrame = requestAnimationFrame(trackActiveSection);
+}, { passive: true });
 
 $('#theme-toggle').addEventListener('click', () => {
     const root = document.documentElement;
@@ -246,6 +348,10 @@ document.addEventListener('click', (event) => {
 });
 
 document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !bottomSheet.hidden) {
+        setSheet(false);
+        bottomToggle.focus();
+    }
     if (event.key === 'Escape' && !downloadMenu.hidden) {
         setMenu(false);
         downloadToggle.focus();
