@@ -306,9 +306,11 @@ button {
 
 .menu {
     position: absolute;
+    z-index: 10; /* above the top tabs, which sit below this button on phones */
     right: 0;
     top: calc(100% + 6px);
     min-width: 240px;
+    max-width: calc(100vw - 2 * var(--gutter));
     padding: 6px;
     background: var(--surface);
     border: 1px solid var(--border);
