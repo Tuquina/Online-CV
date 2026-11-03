@@ -1,573 +1,143 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fernando Tuquina — Senior Software Engineer</title>
+    <meta name="description" content="CV de Fernando Nahuel Tuquina, Senior Software Engineer (backend, .NET, microservicios) en ITTI para ueno bank. Ex Backend Tech Lead en Coto Digital.">
+    <meta name="author" content="Fernando Nahuel Tuquina">
+    <meta name="theme-color" content="#f6f7f9" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)">
 
-    <!--========== BOX ICONS ==========-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="Fernando Tuquina — Senior Software Engineer">
+    <meta property="og:description" content="Backend · .NET · Microservices · Spec-Driven Development. ITTI / ueno bank, ex Tech Lead at Coto Digital.">
+    <meta property="og:image" content="assets/img/profile.jpg">
+    <meta name="twitter:card" content="summary">
 
-    <!--========== CSS ==========-->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231e3a8a'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EFT%3C/text%3E%3C/svg%3E">
+
+    <!-- Apply the saved theme before the first paint to avoid a flash -->
+    <script>
+        (function () {
+            var theme;
+            try { theme = localStorage.getItem('theme'); } catch (e) { }
+            if (theme !== 'light' && theme !== 'dark') {
+                theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            document.documentElement.dataset.theme = theme;
+        })();
+    </script>
+
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="modulepreload" href="assets/js/content.js">
+    <link rel="modulepreload" href="assets/js/format.js">
+    <script type="module" src="assets/js/app.js"></script>
 
-    <title>CV - Tuquina, Fernando Nahuel</title>
+    <!-- Structured data so search engines and AI assistants can read the profile without running JS -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Fernando Nahuel Tuquina",
+        "jobTitle": "Senior Software Engineer",
+        "worksFor": { "@type": "Organization", "name": "ITTI" },
+        "address": { "@type": "PostalAddress", "addressLocality": "San Miguel de Tucumán", "addressRegion": "Tucumán", "addressCountry": "AR" },
+        "email": "mailto:fernandotuquina@gmail.com",
+        "url": "https://www.fernandotuquina.engineer",
+        "image": "assets/img/profile.jpg",
+        "sameAs": [
+            "https://www.linkedin.com/in/fernando-nahuel-tuquina-0ba2a1245/",
+            "https://github.com/Tuquina"
+        ],
+        "alumniOf": [
+            { "@type": "CollegeOrUniversity", "name": "Universidad Nacional de Tucumán" },
+            { "@type": "EducationalOrganization", "name": "Instituto Técnico Salesiano Lorenzo Massa" }
+        ],
+        "knowsLanguage": ["es", "en"],
+        "knowsAbout": [".NET", "C#", "Java", "Microservices", "Clean Architecture", "Kafka", "Redis", "Oracle", "SQL Server", "PL/SQL", "Docker", "Spec-Driven Development", "Cursor", "GitHub Copilot"]
+    }
+    </script>
 </head>
 
 <body>
-    <!--========== HEADER ==========-->
-    <header class="l-header" id="header">
-        <nav class="nav bd-container">
-            <a href="#" class="nav__logo">Fernando Tuquina</a>
+    <!--========== ICONS (Lucide, ISC license) ==========-->
+    <svg xmlns="http://www.w3.org/2000/svg" class="sprite" aria-hidden="true">
+        <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+        <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+        <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+        <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+        <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></symbol>
+        <symbol id="i-github" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></symbol>
+        <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+        <symbol id="i-file" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></symbol>
+        <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></symbol>
+        <symbol id="i-letter" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></symbol>
+        <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2m-7.07-17.07 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+        <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+        <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    </svg>
 
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
+    <a class="skip-link" href="#main">Skip to content</a>
 
-                    <li class="nav__item">
-                        <a href="#home" class="nav__link active-link">
-                            <i class='bx bx-home nav__icon'></i>Home
-                        </a>
-                    </li>
+    <!--========== TOP BAR ==========-->
+    <header class="topbar">
+        <div class="topbar__inner">
+            <a class="brand" href="#cv">
+                <span class="brand__mark" aria-hidden="true">FT</span>
+                <span class="brand__name">Fernando Tuquina</span>
+            </a>
 
-                    <li class="nav__item">
-                        <a href="#profile" class="nav__link">
-                            <i class='bx bx-user nav__icon'></i>Profile
-                        </a>
-                    </li>
+            <nav class="tabs" aria-label="Sections">
+                <a class="tabs__item" data-view="cv" href="#cv">CV</a>
+                <a class="tabs__item" data-view="achievements" href="#achievements">Logros</a>
+                <a class="tabs__item" data-view="cover-letter" href="#cover-letter">Carta de presentación</a>
+            </nav>
 
-                    <li class="nav__item">
-                        <a href="#education" class="nav__link">
-                            <i class='bx bx-book nav__icon'></i>Education
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="#skills" class="nav__link">
-                            <i class='bx bx-code-alt nav__icon'></i>Skills
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="#experience" class="nav__link">
-                            <i class='bx bx-briefcase-alt nav__icon'></i>Experience
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="#certificates" class="nav__link">
-                            <i class='bx bx-award nav__icon'></i>Certificates
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="#competencies" class="nav__link">
-                            <i class='bx bx-receipt nav__icon'></i>Competencies
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="javascript:void(0)" class="nav__link" onclick="togglePopup('popup-achievements'); linkAction();">
-                            <i class='bx bx-trophy nav__icon'></i>Achievements
-                        </a>
-                    </li>
-
-                    <li class="nav__item">
-                        <a href="javascript:void(0)" class="nav__link" onclick="togglePopup('popup-cover-letter'); linkAction();">
-                            <i class='bx bx-file nav__icon'></i>Cover Letter
-                        </a>
-                    </li>
-
-                </ul>
+            <div class="actions">
+                <button class="btn btn--ghost" id="lang-toggle" type="button">
+                    <svg class="icon" aria-hidden="true"><use href="#i-globe"></use></svg><span>EN</span>
+                </button>
+                <button class="btn btn--ghost btn--icon" id="theme-toggle" type="button">
+                    <svg class="icon icon--sun" aria-hidden="true"><use href="#i-sun"></use></svg>
+                    <svg class="icon icon--moon" aria-hidden="true"><use href="#i-moon"></use></svg>
+                </button>
+                <div class="dropdown">
+                    <button class="btn btn--primary" id="download-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="download-menu">
+                        <svg class="icon" aria-hidden="true"><use href="#i-download"></use></svg>
+                        <span class="btn__label">Descargar</span>
+                        <svg class="icon icon--sm" aria-hidden="true"><use href="#i-chevron"></use></svg>
+                    </button>
+                    <div class="menu" id="download-menu" hidden>
+                        <button class="menu__item" type="button" data-download="cv">
+                            <svg class="icon" aria-hidden="true"><use href="#i-file"></use></svg><span>CV (PDF)</span>
+                        </button>
+                        <button class="menu__item" type="button" data-download="achievements">
+                            <svg class="icon" aria-hidden="true"><use href="#i-award"></use></svg><span>Logros (PDF)</span>
+                        </button>
+                        <button class="menu__item" type="button" data-download="coverLetter">
+                            <svg class="icon" aria-hidden="true"><use href="#i-letter"></use></svg><span>Carta de presentación (PDF)</span>
+                        </button>
+                    </div>
+                </div>
             </div>
-
-            <div class="nav__toggle" id="nav-toggle">
-                <i class='bx bx-grid-alt'></i>
-            </div>
-        </nav>
+        </div>
     </header>
 
-    <main class="l-main bd-container">
-        <!-- All elements within this div, is generated in PDF -->
-        <div class="resume" id="area-cv">
-            <div class="resume__left">
-                <!--========== HOME ==========-->
-                <section class="home" id="home">
-                    <div class="home__container section bd-grid">
-                        <div class="home__data bd-grid">
-                            <img src="assets/img/perfil.jpg" alt="foto_de_perfil" class="home__img">
-
-                            <h1 class="home__title">FERNANDO NAHUEL <b>TUQUINA</b></h1>
-                            <h3 class="home__profession">Tech Lead | Backend developer | Engineering student</h3>
-
-                            <!-- Button to download CV saved in the pdf folder. -->
-                            <div>
-                                <a download="" href="assets/pdf/CV-Tuquina,Fernando-Nahuel.pdf"
-                                    class="home__button-movil">Download</a>
-                            </div>
-
-                        </div>
-
-                        <div class="home__address bd-grid">
-                            <span class="home__information">
-                                <i class='bx bx-map social__icon'></i> Tucumán - Argentina
-                            </span>
-                            <span class="home__information">
-                                <i class='bx bx-envelope social__icon'></i>fernandotuquina@gmail.com
-                            </span>
-                            <span class="home__information">
-                                <i class='bx bx-phone social__icon'></i> +54-381-356-9471
-                            </span>
-                        </div>
-                    </div>
-                    <!-- Theme change button -->
-                    <i class='bx bx-moon change-theme' title="Theme" id="theme-button"></i>
-
-                    <!-- Button to generate and download the pdf. Available for desktop. -->
-                    <i class='bx bx-download generate-pdf' title="Generate PDF" id="resume-button"></i>
-                </section>
-
-                <!--========== SOCIAL ==========-->
-                <section class="social section">
-                    <h2 class="section-title">SOCIAL</h2>
-
-                    <div class="social__container bd-grid">
-                        <a href="https://www.linkedin.com/in/fernando-nahuel-tuquina-0ba2a1245/" target="_blank"
-                            class="social__link">
-                            <i class='bx bxl-linkedin-square'></i> Fernando Tuquina
-                        </a>
-                        <a href="https://github.com/Tuquina" target="_blank" class="social__link">
-                            <i class='bx bxl-github'></i> Tuquina
-                        </a>
-                    </div>
-                </section>
-
-                <!--========== PROFILE ==========-->
-                <section class="profile section" id="profile">
-                    <h2 class="section-title">Profile</h2>
-
-                    <p class="profile__description">
-                        Experienced Software Engineer currently serving as a <strong>Tech Lead</strong> focused on <strong>backend development</strong> at Coto. 
-    With expertise in <strong>clean architecture</strong>, <strong>performance optimization</strong>, and <strong>scalable solutions</strong>, 
-    I lead teams to deliver high-quality applications aligned with business goals. Driven by a passion for <strong>continuous learning</strong> 
-    and <strong>innovation</strong>, I implement <strong>cutting-edge technologies</strong> to ensure <strong>efficiency</strong> and 
-    excellence in every project. I thrive in dynamic environments where <strong>strategic decision-making</strong> and 
-    <strong>collaboration</strong> are key to driving growth and innovation.
-                    </p>
-                </section>
-
-                <!--========== EDUCATION ==========-->
-                <section class="education section" id="education">
-                    <h2 class="section-title">Education</h2>
-
-                    <div class="education__container bd-grid">
-
-                        <div class="education__content">
-                            <div class="education__time">
-                                <span class="education__rounder"></span>
-                                <span class="education__line"></span>
-                            </div>
-
-                            <div class="education__data bd-grid">
-                                <h3 class="education__title">COMPUTER ENGINEER</h3>
-                                <span class="education__studies">National University of Tucuman (UNT)</span>
-                                <span class="education__studies">Faculty of exact sciences and technology</span>
-                                <span class="education__year">2017 - Now</span>
-                            </div>
-                        </div>
-
-                        <!--========== Bloque de educación ==========-->
-
-                        <div class="education__content">
-                            <div class="education__time">
-                                <span class="education__rounder"></span>
-                            </div>
-
-                            <div class="education__data bd-grid">
-                                <h3 class="education__title">Electronics Technician</h3>
-                                <span class="education__studies">Lorenzo Massa Salesian Technical Institute</span>
-                                <span class="education__year">2009 - 2015</span>
-                            </div>
-                        </div>
-
-                        <!--========== Bloque de educación ==========-->
-
-                    </div>
-                </section>
-
-
-                <!--========== SKILLS  ==========-->
-                <section class="skills section" id="skills">
-                    <h2 class="section-title">Skills</h2>
-
-                    <div class="skills__content bd-grid">
-                        <ul class="skills__data">
-                            <li class="skills__name">
-                                <span class="skills__circle"></span> .NET
-                            </li>
-                            <li class="skills__name">
-                                <span class="skills__circle"></span> C/C#
-                            </li>
-                            <li class="skills__name">
-                                <span class="skills__circle"></span> Java
-                            </li>
-                            <li class="skills__name">
-                                <span class="skills__circle"></span> PL/SQL
-                            </li>
-                            <li class="skills__name">
-                                <span class="skills__circle"></span> Docker
-                            </li>
-                        </ul>
-
-                        <ul class="skills__data">
-                            <li class="skills__name">
-                                <span class="skills__circle"></span> HTML/CSS/JS
-                            </li>
-                            <li class="skills__name">
-                                <span class="skills__circle"></span> Unit Test
-                            </li>
-                            <li class="skills__name">
-                                <span class="skills__circle"></span> Kafka
-                            </li>
-                            <li class="skills__name">
-                                <span class="skills__circle"></span> MySQL/Oracle
-                            </li>
-                            <li class="skills__name">
-                                <span class="skills__circle"></span> REST
-                            </li>
-                        </ul>
-
-                    </div>
-                </section>
-
-            </div>
-
-            <div class="resume__right">
-                <!--========== EXPERIENCE ==========-->
-
-                <section class="experience section" id="experience">
-                    <h2 class="section-title">Experience</h2>
-
-                    <div class="experience__container bd-grid">
-                        <div class="experience__content">
-                            <div class="experience__time">
-                                <span class="experience__rounder"></span>
-                                <span class="experience__line"></span>
-                            </div>
-
-                            <div class="experience__data bd-grid">
-                                <h3 class="experience__title">Backend Tech Lead</h3>
-                                <span class="experience__company">May 2024 - Present | COTO Digital</span>
-                                <p class="experience__description">
-                                    As Backend Tech Lead for Coto Digital, I guide a team in developing and maintaining scalable microservices-based systems. 
-                                    I ensure adherence to best practices in software development through code reviews, mentoring, and setting technical guidelines. 
-                                    By fostering collaboration, I help the team deliver high-quality solutions that align with business objectives while driving 
-                                    innovation in backend architecture and continuous improvement.
-                                </p>
-                            </div>
-
-                        </div>
-                    
-                    <div class="experience__container bd-grid">
-                        <div class="experience__content">
-                            <div class="experience__time">
-                                <span class="experience__rounder"></span>
-                                <span class="experience__line"></span>
-                            </div>
-
-                            <div class="experience__data bd-grid">
-                                <h3 class="experience__title">.NET Programmer Analyst</h3>
-                                <span class="experience__company">July 2022 - May 2024 | COTO</span>
-                                <p class="experience__description">
-                                    Led the design and development of complex web applications and microservices in Docker using .NET, integrated with Oracle and SQL Server databases. 
-                                    Developed solutions for operational processes in retail, in-store management, accounting, and financial reporting, ensuring scalable and efficient architectures.
-                                </p>
-                            </div>
-
-                        </div>
-
-                    <div class="experience__container bd-grid">
-                        <div class="experience__content">
-                            <div class="experience__time">
-                                <span class="experience__rounder"></span>
-                                <span class="experience__line"></span>
-                            </div>
-
-                            <div class="experience__data bd-grid">
-                                <h3 class="experience__title">2nd category teaching assistant</h3>
-                                <span class="experience__company">2018-2019/2021-2023 | FACET - UNT </span>
-                                <p class="experience__description">
-                                    Teaching Assistant: Computer Science, Programming I and Programming II. Performing
-                                    dictation of practical classes, consultations and tutorials of final projects.
-                                </p>
-                            </div>
-
-                        </div>
-
-                        <div class="experience__content">
-                            <div class="experience__time">
-                                <span class="experience__rounder"></span>
-                                <span class="experience__line"></span>
-                            </div>
-
-                            <div class="experience__data bd-grid">
-                                <h3 class="experience__title">Teacher replacement</h3>
-                                <span class="experience__company">2021 | Lorenzo Massa </span>
-                                <p class="experience__description">
-                                    Substitute workshop teacher for the subjects: computer science I and II, assisted
-                                    design and industrial electronics
-                                </p>
-                            </div>
-
-                        </div>
-
-                        <div class="experience__content">
-                            <div class="experience__time">
-                                <span class="experience__rounder"></span>
-                            </div>
-
-                            <div class="experience__data bd-grid">
-                                <h3 class="experience__title">Electronic Instrumentation Technician</h3>
-                                <span class="experience__company">2015 | San Miguel Citrus </span>
-                                <p class="experience__description">
-                                    Intern in the electronic maintenance sector, performing PLC programming tasks and
-                                    setting up digital and analog sensors.
-                                </p>
-                            </div>
-
-                        </div>
-                    </div>
-                </section>
-
-                <!--========== CERTIFICATES ==========-->
-                <section class="certificate section" id="certificates">
-                    <h2 class="section-title">Certificates</h2>
-
-                    <div class="certificate__container bd-grid">
-
-                        <div class="certificate__content">
-                            <h3 class="certificate__title">Curso Ingeniería de Datos de Alto Rendimiento con Herramientas CASE - 2022</h3>
-                            <p class="certificate__description">
-                                Learned how to design high-performance databases with high concurrency, using CASE tools and best practices, including execution plan analysis in MySQL.
-                            </p>
-                        </div>
-                    
-                        <div class="certificate__content">
-                            <h3 class="certificate__title">Curso de React (Hooks Context Redux MERN) - Udemy (2022)</h3>
-                            <p class="certificate__description">
-                                Udemy course where projects were developed using React, Context API, Next, Vite, Custom Hooks, Redux, and MERN technologies, among others.
-                            </p>
-                        </div>
-                    
-                        <div class="certificate__content">
-                            <h3 class="certificate__title">JavaScript Algorithms and Data Structures (2022)</h3>
-                            <p class="certificate__description">
-                                Development certification using the JavaScript language, focusing on ES6, debugging, and practical projects.
-                            </p>
-                        </div>
-                    
-                        <div class="certificate__content">
-                            <h3 class="certificate__title">Responsive Web Design (2022)</h3>
-                            <p class="certificate__description">
-                                Responsive web design certification from freeCodeCamp, focusing on HTML, CSS, and JavaScript practices.
-                            </p>
-                        </div>
-                    
-                        <div class="certificate__content">
-                            <h3 class="certificate__title">Taller de robótica Educativa para Docentes - UTN (2018)</h3>
-                            <p class="certificate__description">
-                                Course covering methodologies and dynamics for teaching basic robotics using Arduino to high school and university students.
-                            </p>
-                        </div>
-                    
-                    </div>
-                    
-                </section>
-
-                <!--========== COMPETENCIES ==========-->
-                <section class="competencies section" id="competencies">
-                    <h2 class="section-title">Competencies</h2>
-
-                    <div class="competencies__container">
-                        <ul class="competencies__content bd-grid">
-                            <li class="competencies__name">
-                                <span class="competencies__circle"></span> Teamwork
-                            </li>
-                            <li class="competencies__name">
-                                <span class="competencies__circle"></span> Proactivity
-                            </li>
-                            <li class="competencies__name">
-                                <span class="competencies__circle"></span> Ability to learn
-                            </li>
-                            <li class="competencies__name">
-                                <span class="competencies__circle"></span> Effective communication
-                            </li>
-                            <li class="competencies__name long-text">
-                                <span class="competencies__circle"></span> Responsibility and Organization
-                            </li>
-                            <li class="competencies__name">
-                                <span class="competencies__circle"></span> Conflict resolution
-                            </li>
-                            <li class="competencies__name long-text">
-                                <span class="competencies__circle"></span> Git | GitHub | Bitbucket
-                            </li>
-                            <li class="competencies__name">
-                                <span class="competencies__circle"></span> Office tools
-                            </li>
-                            <li class="competencies__name">
-                                <span class="competencies__circle"></span> Linux knowledge
-                            </li>
-                            <li class="competencies__name">
-                                <span class="competencies__circle"></span> Leadership
-                            </li>
-                            <li class="competencies__name long-text">
-                                <span class="competencies__circle"></span> Technical decision making
-                            </li>
-                            <li class="competencies__name long-text">
-                                <span class="competencies__circle"></span> Agile methodologies
-                            </li>
-                        </ul>
-                    </div>
-                </section>
-
-                <!--========== LANGUAGES ==========-->
-                <section class="languages section">
-                    <h2 class="section-title">Languages</h2>
-
-                    <div class="languages__container">
-                        <ul class="languages__content bd-grid">
-                            <li class="languages__name">
-                                <span class="languages__circle"></span> Spanish (Native)
-                            </li>
-                            <li class="languages__name">
-                                <span class="languages__circle"></span> English (Intermediate)
-                            </li>
-                        </ul>
-                    </div>
-                </section>
-
-                <!--========== INTERESTS ==========-->
-                <section class="interests section">
-                    <h2 class="section-title">Interests</h2>
-
-                    <div class="interests__container bd-grid">
-
-                        <div class="interests__content">
-                            <i class='bx bx-headphone interests__icon'></i>
-                            <span class="interests__name">Music</span>
-                        </div>
-
-                        <div class="interests__content">
-                            <i class='bx bxs-plane-alt interests__icon'></i>
-                            <span class="interests__name">Travel</span>
-                        </div>
-
-                        <div class="interests__content">
-                            <i class='bx bx-book interests__icon'></i>
-                            <span class="interests__name">Read</span>
-                        </div>
-
-                        <div class="interests__content">
-                            <i class='bx bx-cycling interests__icon'></i>
-                            <span class="interests__name">Cycling</span>
-                        </div>
-
-                    </div>
-                </section>
-            </div>
-        </div>
-
-        <!-- Botones para ver los popups (solo visibles en desktop) -->
-        <div class="section bd-container popup-buttons-wrapper hide-on-mobile">
-            <div class="popup-button-container">
-                <button class="popup-button" onclick="togglePopup('popup-achievements')">
-                <i class='bx bx-trophy'></i> Achievements
-                </button>
-            </div>
-            <div class="popup-button-container">
-                <button class="popup-button" onclick="togglePopup('popup-cover-letter')">
-                <i class='bx bx-file'></i> Cover Letter
-                </button>
-            </div>
-        </div>
-
-        <!-- Modal de Logros -->
-        <div id="popup-achievements" class="popup-modal hidden" onclick="outsideClick(event, 'popup-achievements')">
-            <div class="popup-content" onclick="event.stopPropagation()">
-                <button class="popup-close" onclick="togglePopup('popup-achievements')">&times;</button>
-                <h2 class="section-title">Achievements</h2>
-                <div class="popup-section">
-                    <p class="popup-text">
-                        Throughout my career, I've consistently sought not only to meet expectations but to exceed them by focusing on architectural clarity, performance, and real business value. These are some of the milestones I'm most proud of:
-                    </p>
-                    <ul class="popup-list-default">
-                        <li>Migrated a legacy monolithic system into a microservices architecture using .NET and Docker, improving response times and deployment scalability.</li>
-                        <li>Designed and implemented a Kafka-based messaging architecture to enable reliable communication between microservices.</li>
-                        <li>Built a reusable and extensible .NET 8 microservice template aligned with modern architecture, clean code practices, and development standards.</li>
-                        <li>Refactored complex Oracle and SQL Server queries and PL/SQL procedures, improving database performance and readability across key systems.</li>
-                        <li>Implemented a centralized Redis cache strategy and developed shared libraries to standardize its usage across services.</li>
-                        <li>Created a centralized application for accounting movement reporting within Coto Digital's ecosystem.</li>
-                        <li>Developed a generic microservice for automated, scheduled background jobs with configurable task definitions and executions.</li>
-                        <li>Redesigned the operations web platform used by over 2000 concurrent users in 40+ stores, optimizing workflows for picking, checkout, billing, and reporting.</li>
-                        <li>Integrated an automatic billing system that generated over 180,000 invoices and vouchers, eliminating manual effort and saving more than 500,000 printed pages.</li>
-                        <li>Introduced full request tracing via Serilog with correlation IDs, enhancing observability and traceability in distributed environments.</li>
-                        <li>Promoted agile practices and technical mentoring as Tech Lead, improving delivery pipelines, code quality, and team autonomy.</li>
-                        <li>Migrated 90+ on-premise repositories to Bitbucket Cloud, modernizing the version control ecosystem.</li>
-                        <li>Redesigned business-critical workflows using Clean Architecture, improving maintainability and testability.</li>                
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal de Carta de presentación -->
-        <div id="popup-cover-letter" class="popup-modal hidden" onclick="outsideClick(event, 'popup-cover-letter')">
-            <div class="popup-content" onclick="event.stopPropagation()">
-                <button class="popup-close" onclick="togglePopup('popup-cover-letter')">&times;</button>
-                <h2 class="section-title">Cover Letter</h2>
-                <div class="popup-section">
-                    <p class="popup-text">
-                        Dear Hiring Team,
-                    </p>
-                    <p class="popup-text">
-                        My name is Fernando Nahuel Tuquina, and I’m a software engineer and Tech Lead currently working at Coto Digital. I’m someone who not only codes for a living — I genuinely enjoy it, even as a hobby. From the thrill of solving complex backend challenges to refining architectural decisions, I’ve always been passionate about building systems that are fast, clean, and scalable.
-                    </p>
-                    <p class="popup-text">
-                        Over the past few years, I've worked on modernizing core systems, designing services that talk through Kafka, optimizing PL/SQL and stored procedures, implementing centralized Redis caching, and developing reusable libraries to keep our development consistent and efficient. I’m especially proud of the fraud control architecture I helped shape, and the impact of automating processes that once took hours of manual work. If something needs to be done more than once — I’ll find a way to automate it.
-                    </p>
-                    <p class="popup-text">
-                        I’m a calm and methodical person by nature. I stick to structured work plans while constantly looking for improvements — always aiming to optimize processes and make life easier for both users and developers. I believe great engineering is not just about writing code, but about understanding the context, communicating clearly with others, and crafting long-term solutions.
-                    </p>
-                    <p class="popup-text">
-                        Outside of work, I love technology in all its forms. Recently I’ve been diving into 3D printing, and I enjoy cycling and running to clear my mind. Music is another big part of who I am — I play the guitar and often find inspiration through sound. I’m also a fan of video games and all things geeky.
-                    </p>
-                    <p class="popup-text">
-                        I’m looking for a place where I can keep growing, contribute meaningfully, and work alongside talented and motivated people. I’m always eager to learn, improve, and stay focused on delivering real value through thoughtful, well-crafted solutions.
-                    </p>
-                    <hr class="signature-separator">
-                    <div class="popup-signature">
-                        <p class="popup-thankyou">Thank you for reading my story and considering my profile.</p>
-                        <p class="popup-closing">Warm regards,</p>
-                        <div class="popup-author">
-                            <p class="popup-name cursive">Fernando Nahuel Tuquina</p>
-                            <img src="assets/img/signature.png" alt="Signature" class="signature-image">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-  
-  
+    <main class="page" id="main" tabindex="-1">
+        <noscript>
+            <article class="sheet doc">
+                <h1>Fernando Nahuel Tuquina</h1>
+                <p>Senior Software Engineer · Backend — ITTI (ueno bank). Tucumán, Argentina.</p>
+                <p>fernandotuquina@gmail.com · <a href="https://www.linkedin.com/in/fernando-nahuel-tuquina-0ba2a1245/">LinkedIn</a> · <a href="https://github.com/Tuquina">GitHub</a></p>
+            </article>
+        </noscript>
     </main>
 
-    <!--========== SCROLL TOP ==========-->
-    <a href="#" class="scrolltop" id="scroll-top">
-        <i class='bx bx-up-arrow-alt scrolltop__icon'></i>
-    </a>
-    <!--========== HTML2PDF ==========-->
-    <script src="assets/js/html2pdf.bundle.min.js"></script>
+    <footer class="footer" id="footer"></footer>
 
-    <!--========== MAIN JS ==========-->
-    <script src="assets/js/main.js"></script>
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 </body>
 
 </html>

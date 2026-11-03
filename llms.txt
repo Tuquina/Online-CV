@@ -1,0 +1,27 @@
+# Fernando Nahuel Tuquina
+
+> Senior Software Engineer (backend) based in Tucumán, Argentina. Currently at ITTI working for ueno bank (Lending tribe, Collections team). Former Backend Tech Lead at Coto Digital. Spanish (native), English (intermediate).
+
+The interactive CV is available in Spanish (`/?lang=es`) and English (`/?lang=en`). The "Download" menu generates text-based PDFs of the resume, the achievements and the cover letter.
+
+## Experience
+
+- Senior Software Engineer — ITTI, client ueno bank (Aug 2025 – present). Backend services for the loan collections domain. Hybrid methodology combining traditional and agentic development with Spec-Driven Development (SDD), using Cursor and GitHub Copilot.
+- Backend Tech Lead — Coto Digital (May 2024 – Jul 2025). Led the backend team; Kafka messaging architecture, centralized Redis caching, .NET 8 microservice template, Serilog request tracing.
+- .NET Programmer Analyst — Coto (Jul 2022 – May 2024). .NET microservices in Docker with Oracle and SQL Server; store operations platform for 2,000+ concurrent users in 40+ stores; automatic billing (180,000+ invoices).
+- Teaching Assistant — FACET, Universidad Nacional de Tucumán (2018 – 2019, 2021 – 2023).
+
+## Skills
+
+C#, .NET 8, Java, REST APIs, microservices, Clean Architecture, Oracle, SQL Server, MySQL, PL/SQL, Redis, Kafka, Docker, Git, Linux, unit testing, code review, Agile/Scrum, Spec-Driven Development, Cursor, GitHub Copilot.
+
+## Education
+
+- Computer Engineering (in progress) — Universidad Nacional de Tucumán (2017 – present)
+- Electronics Technician — Instituto Técnico Salesiano Lorenzo Massa (2009 – 2015)
+
+## Contact
+
+- Email: fernandotuquina@gmail.com
+- LinkedIn: https://www.linkedin.com/in/fernando-nahuel-tuquina-0ba2a1245/
+- GitHub: https://github.com/Tuquina
