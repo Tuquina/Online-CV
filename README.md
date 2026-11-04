@@ -2,14 +2,14 @@
 
 Online resume of **Fernando Nahuel Tuquina**, Senior Software Engineer.
 
-- **Live site (Vercel):** https://online-cv-tuquinas-projects.vercel.app (English by default)
-- **Spanish:** https://online-cv-tuquinas-projects.vercel.app/?lang=es
-- **English:** https://online-cv-tuquinas-projects.vercel.app/?lang=en
+- **Live site (Vercel):** https://fernandotuquina-cv.vercel.app (English by default)
+- **Spanish:** https://fernandotuquina-cv.vercel.app/?lang=es
+- **English:** https://fernandotuquina-cv.vercel.app/?lang=en
 
 ## Features
 
 - **Bilingual:** English (default) and Spanish, with a language toggle. The language comes from `?lang=`, then the visitor's last choice, and otherwise English.
-- **Three views:** Resume (`#cv`), Achievements (`#achievements`) and Cover letter (`#cover-letter`).
+- **Three views:** Resume (`#cv`), Achievements (`#achievements`) and Cover letter (`#cover-letter`). The resume view ends with a web-only *Personal projects* section (screenshots, demo and code links); it is not included in the PDF.
 - **Downloads:** the *Download* menu generates three separate PDFs in the active language: resume, achievements and cover letter.
 - **ATS and AI friendly PDFs:** single column, standard section headings and real, selectable text (not images), with title, author and keywords in the PDF metadata.
 - **Responsive:** works from 320 px phones to desktop, without horizontal scrolling. On phones and tablets a bottom bar opens a sections menu (profile, experience, skills… plus achievements and cover letter).

@@ -13,6 +13,7 @@ const basics = {
     phone: '+54 381 356 9471',
     linkedin: 'https://www.linkedin.com/in/fernando-nahuel-tuquina-0ba2a1245/',
     github: 'https://github.com/Tuquina',
+    website: 'https://fernandotuquina-cv.vercel.app',
     photo: 'assets/img/profile.jpg',
     signature: 'assets/img/signature.png',
 };
@@ -40,6 +41,7 @@ export const content = {
             switchLanguage: 'Ver en español',
             menu: 'Download options',
             nav: { label: 'Sections', home: 'Home', open: 'Open the sections menu', close: 'Close the sections menu' },
+            projectLinks: { demo: 'Live demo', code: 'Code', preview: 'Screenshot of' },
             present: 'Present',
             page: 'Page',
             of: 'of',
@@ -52,6 +54,7 @@ export const content = {
                 languages: 'Languages',
                 competencies: 'Soft skills',
                 interests: 'Interests',
+                projects: 'Personal projects',
                 contact: 'Contact',
             },
             lastUpdated: 'Last updated',
@@ -166,6 +169,25 @@ export const content = {
             'Continuous learning',
         ],
         interests: ['Music (guitar and piano)', 'Cycling and running', '3D printing', 'Reading', 'Travel'],
+        // Web only: personal projects are not part of the PDF resume.
+        projects: [
+            {
+                name: 'One Button',
+                description: 'One-button arcade runner: tap to jump, hold to jump higher. Endless, rhythm and gravity modes, music synthesized with Web Audio, and procedurally generated levels checked by a solver so they are always beatable. Runs on desktop and mobile in ~70 KB.',
+                image: 'assets/img/projects/endless-arcade-runner.jpg',
+                demo: 'https://endless-arcade-runner.vercel.app/',
+                repo: 'https://github.com/Tuquina/Endless-Arcade-Runner',
+                tags: ['TypeScript', 'Canvas 2D', 'Web Audio', 'Vite'],
+            },
+            {
+                name: 'Strixhaven Draft Academy',
+                description: 'Local-first web app to run casual Magic: The Gathering draft tournaments with friends: player registration, deck colors, automatic round-robin pairings, live standings and a final podium. Works offline, with optional Supabase sync.',
+                image: 'assets/img/projects/strixhaven-draft-academy.jpg',
+                demo: 'https://strixhaven-draft-academy.vercel.app/',
+                repo: 'https://github.com/Tuquina/strixhaven-draft-academy',
+                tags: ['React', 'TypeScript', 'Tailwind CSS', 'Supabase'],
+            },
+        ],
         achievements: {
             title: 'Career Achievements',
             intro:
@@ -251,6 +273,7 @@ export const content = {
             switchLanguage: 'View in English',
             menu: 'Opciones de descarga',
             nav: { label: 'Secciones', home: 'Inicio', open: 'Abrir el menú de secciones', close: 'Cerrar el menú de secciones' },
+            projectLinks: { demo: 'Ver demo', code: 'Código', preview: 'Captura de' },
             present: 'Actualidad',
             page: 'Página',
             of: 'de',
@@ -263,6 +286,7 @@ export const content = {
                 languages: 'Idiomas',
                 competencies: 'Habilidades blandas',
                 interests: 'Intereses',
+                projects: 'Proyectos personales',
                 contact: 'Contacto',
             },
             lastUpdated: 'Última actualización',
@@ -377,6 +401,24 @@ export const content = {
             'Aprendizaje continuo',
         ],
         interests: ['Música (guitarra y piano)', 'Ciclismo y running', 'Impresión 3D', 'Lectura', 'Viajes'],
+        projects: [
+            {
+                name: 'One Button',
+                description: 'Arcade runner de un solo botón: tocás para saltar y mantenés para saltar más alto. Modos sin fin, ritmo y gravedad, música sintetizada con Web Audio y niveles generados proceduralmente que un solver verifica para que siempre sean superables. Funciona en PC y celulares y pesa ~70 KB.',
+                image: 'assets/img/projects/endless-arcade-runner.jpg',
+                demo: 'https://endless-arcade-runner.vercel.app/',
+                repo: 'https://github.com/Tuquina/Endless-Arcade-Runner',
+                tags: ['TypeScript', 'Canvas 2D', 'Web Audio', 'Vite'],
+            },
+            {
+                name: 'Strixhaven Draft Academy',
+                description: 'App web local-first para organizar torneos casuales de draft de Magic: The Gathering con amigos: registro de jugadores, colores de mazo, emparejamientos round-robin automáticos, tabla en vivo y podio final. Funciona sin conexión, con sincronización opcional en Supabase.',
+                image: 'assets/img/projects/strixhaven-draft-academy.jpg',
+                demo: 'https://strixhaven-draft-academy.vercel.app/',
+                repo: 'https://github.com/Tuquina/strixhaven-draft-academy',
+                tags: ['React', 'TypeScript', 'Tailwind CSS', 'Supabase'],
+            },
+        ],
         achievements: {
             title: 'Logros profesionales',
             intro:
