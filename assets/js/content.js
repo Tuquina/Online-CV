@@ -65,9 +65,10 @@ export const content = {
             location: 'Tucumán, Argentina',
         },
         summary:
-            'Senior Software Engineer with 4+ years of experience building backend systems in Java and .NET for banking and retail. ' +
-            'At ITTI (client: ueno bank) I rebuilt the bank’s mass debt collector, which now processes 5.7M+ debts a month, working with a hybrid of traditional and agentic development guided by Spec-Driven Development (SDD). ' +
-            'Former Backend Tech Lead at Coto Digital. I care about clean architecture, performance and code that is easy for the next person to understand.',
+            'Senior Backend Engineer specializing in distributed systems and API architecture with Java/Spring and C#/.NET, with 4+ years building business-critical platforms for fintech and retail. ' +
+            'At ueno bank (through ITTI) I rebuilt the mass debt collector, which processes 5.7M+ debt records a month. ' +
+            'Former Backend Tech Lead with hands-on experience in architecture decisions, technical mentoring, CI/CD, observability and engineering standards. ' +
+            'I combine traditional and agentic development with Spec-Driven Development (SDD) to build reliable systems that are easy to maintain.',
         experience: [
             {
                 role: 'Senior Software Engineer',
@@ -76,7 +77,7 @@ export const content = {
                 start: '2025-08',
                 end: null,
                 highlights: [
-                    'Rebuilt the bank’s mass debt collector from scratch in Java and Spring, adding overdrafts (not covered by the legacy process) to credit cards and loans; it now processes 5.7M+ debts a month (~170K a day).',
+                    'Rebuilt the bank’s mass debt collector from scratch in Java and Spring, adding overdrafts (not covered by the legacy process) to credit cards and loans; it now processes 5.7M+ debt records a month (~240K per business day).',
                     'Drove ~250K successful collections a month (PYG 12B+ and USD 78K+ recovered) with association algorithms that add accounts and salaries to each collection attempt.',
                     'Built collections back-office tools (customer exclusions, refunds and reversals) across the stack: React micro-frontend, Kong API Gateway, BFF and microservices.',
                     'Automated loan restructuring into a 100% digital, self-service flow, and migrated key collections services to modular monoliths organized by bounded context.',
@@ -129,7 +130,7 @@ export const content = {
         ],
         education: [
             {
-                degree: 'Computer Engineering (in progress)',
+                degree: 'Computer Engineering — coursework completed, thesis in progress',
                 school: 'Universidad Nacional de Tucumán — Faculty of Exact Sciences and Technology',
                 period: '2017 – Present',
             },
@@ -199,7 +200,7 @@ export const content = {
                     period: '2025 – Present',
                     items: [
                         'Rebuilt the bank’s mass debt collector from scratch, redesigning the legacy process and adding overdrafts, which it did not support. It handles overdrafts, credit cards and loans for customers in arrears.',
-                        'The new collector processes 5.7M+ debts a month (~170K a day): 2.27M overdrafts, 1.81M credit card debts and 1.62M loan debts.',
+                        'The new collector processes 5.7M+ debt records a month (~240K per business day, as it runs on weekdays only): 2.27M overdraft, 1.81M credit card and 1.62M loan records.',
                         'Reached ~250K successful collections a month, recovering PYG 12B+ and USD 78K+ automatically, including 184K partial loan installment payments.',
                         'Designed association algorithms that add accounts and salaries to each collection attempt, creating 244K associations a month to increase recovery.',
                         'Built back-office tools for the collections operation (customer exclusions, refunds and reversals) end to end: React micro-frontend, Kong API Gateway routes, BFF and backend microservices.',
@@ -240,7 +241,7 @@ export const content = {
             greeting: 'Dear Hiring Team,',
             paragraphs: [
                 'My name is Fernando Nahuel Tuquina. I am a Senior Software Engineer at ITTI, where I work for ueno bank on the Collections team, and before that I was Backend Tech Lead at Coto Digital. Programming is not just my job: I genuinely enjoy it, and I have always been drawn to building systems that are fast, clean and scalable.',
-                'Over the last year I had the chance to rebuild, from scratch, the system that collects overdue debts for the bank: overdrafts, credit cards and loans. Today it processes more than 5.7 million debts a month, and seeing it run every day at that scale is one of the things I am proudest of. Along the way I also built back-office tools for the collections team and helped turn loan restructuring into a fully digital process.',
+                'Over the last year I had the chance to rebuild, from scratch, the system that collects overdue debts for the bank: overdrafts, credit cards and loans. Today it processes more than 5.7 million debt records a month, and seeing it run every day at that scale is one of the things I am proudest of. Along the way I also built back-office tools for the collections team and helped turn loan restructuring into a fully digital process.',
                 'At Coto I learned a lot about leading people: reviewing code, mentoring and making technical decisions that others would have to live with. I designed services that talk through Kafka, cleaned up PL/SQL that had grown for years, helped shape a fraud-control architecture and automated processes that used to take hours of manual work. If something has to be done more than once, I will look for a way to automate it.',
                 'These days I work with a hybrid approach. We first write PRDs and RFCs together with the Engineering Manager and the PM, and then use agentic tools like Cursor and GitHub Copilot to move faster. For me AI is an ally, not a shortcut: a clear spec and a careful review of every change matter more than ever.',
                 'I am a calm and methodical person. I like having a plan, but I am always looking for something to improve, both for the people who use the system and for the developers who will maintain it after me.',
@@ -298,9 +299,10 @@ export const content = {
             location: 'Tucumán, Argentina',
         },
         summary:
-            'Senior Software Engineer con más de 4 años de experiencia desarrollando sistemas backend en Java y .NET para banca y retail. ' +
-            'En ITTI (cliente: ueno bank) rehice el cobrador masivo de deudas del banco, que hoy procesa más de 5,7 millones de deudas por mes, combinando desarrollo tradicional y agéntico guiado por Spec-Driven Development (SDD). ' +
-            'Ex Backend Tech Lead en Coto Digital. Me importan la arquitectura limpia, el rendimiento y que el código sea fácil de entender para la próxima persona.',
+            'Senior Backend Engineer especializado en sistemas distribuidos y arquitectura de APIs con Java/Spring y C#/.NET, con más de 4 años construyendo plataformas críticas para fintech y retail. ' +
+            'En ueno bank (a través de ITTI) rehice el cobrador masivo de deudas, que procesa más de 5,7 millones de registros de deuda por mes. ' +
+            'Ex Backend Tech Lead con experiencia práctica en decisiones de arquitectura, mentoría técnica, CI/CD, observabilidad y estándares de ingeniería. ' +
+            'Combino desarrollo tradicional y agéntico con Spec-Driven Development (SDD) para construir sistemas confiables y fáciles de mantener.',
         experience: [
             {
                 role: 'Senior Software Engineer',
@@ -309,7 +311,7 @@ export const content = {
                 start: '2025-08',
                 end: null,
                 highlights: [
-                    'Rehice desde cero en Java y Spring el cobrador masivo de deudas del banco, sumando los sobregiros (que el proceso anterior no contemplaba) a tarjetas de crédito y préstamos; hoy procesa más de 5,7 millones de deudas por mes (~170 mil por día).',
+                    'Rehice desde cero en Java y Spring el cobrador masivo de deudas del banco, sumando los sobregiros (que el proceso anterior no contemplaba) a tarjetas de crédito y préstamos; hoy procesa más de 5,7 millones de registros de deuda por mes (~240 mil por día hábil).',
                     'Logré ~250 mil cobros exitosos por mes (más de PYG 12.000 millones y USD 78 mil recuperados) con algoritmos de asociación que suman cuentas y salarios a cada intento de cobro.',
                     'Desarrollé backoffices para la operación de cobros (exclusiones de clientes, reversiones y devoluciones) en todo el stack: microfrontend en React, Kong API Gateway, BFF y microservicios.',
                     'Automaticé la reestructuración de préstamos en un flujo 100% digital y autogestionado, y migré servicios clave de cobranza a monolitos modulares separados por bounded context.',
@@ -362,7 +364,7 @@ export const content = {
         ],
         education: [
             {
-                degree: 'Ingeniería en Computación (en curso)',
+                degree: 'Ingeniería en Computación — cursada completa, tesis en curso',
                 school: 'Universidad Nacional de Tucumán — Facultad de Ciencias Exactas y Tecnología',
                 period: '2017 – Actualidad',
             },
@@ -431,7 +433,7 @@ export const content = {
                     period: '2025 – Actualidad',
                     items: [
                         'Rehice desde cero el cobrador masivo de deudas del banco, rediseñando el proceso anterior y sumando los sobregiros, que no contemplaba. Cubre sobregiros, tarjetas de crédito y préstamos de clientes en mora.',
-                        'El nuevo cobrador masivo de deudas procesa más de 5,7 millones de deudas por mes (~170 mil por día): 2,27 millones de sobregiros, 1,81 millones de deudas de tarjetas y 1,62 millones de deudas de préstamos.',
+                        'El nuevo cobrador masivo de deudas procesa más de 5,7 millones de registros de deuda por mes (~240 mil por día hábil, ya que corre solo de lunes a viernes): 2,27 millones de sobregiros, 1,81 millones de tarjetas de crédito y 1,62 millones de préstamos.',
                         'Alcanzó ~250 mil cobros exitosos por mes, recuperando de forma automática más de PYG 12.000 millones y USD 78 mil, incluidos 184 mil pagos parciales de cuotas de préstamos.',
                         'Diseñé algoritmos de asociación que suman cuentas y salarios a cada intento de cobro, con 244 mil asociaciones creadas por mes para aumentar la recuperación.',
                         'Desarrollé de punta a punta backoffices para la operación de cobros (exclusiones de clientes, reversiones y devoluciones): microfrontend en React, rutas en Kong API Gateway, BFF y microservicios backend.',
@@ -472,7 +474,7 @@ export const content = {
             greeting: 'Estimado equipo de selección:',
             paragraphs: [
                 'Mi nombre es Fernando Nahuel Tuquina. Soy Senior Software Engineer en ITTI, donde trabajo para ueno bank en el equipo de Cobros, y antes fui Backend Tech Lead en Coto Digital. Programar no es solo mi trabajo: lo disfruto de verdad, y siempre me atrajo construir sistemas rápidos, limpios y escalables.',
-                'En el último año tuve la oportunidad de rehacer desde cero el sistema que cobra las deudas en mora del banco: sobregiros, tarjetas de crédito y préstamos. Hoy procesa más de 5,7 millones de deudas por mes, y verlo funcionar todos los días a esa escala es de las cosas que más orgullo me dan. En el camino también armé backoffices para el equipo de cobros y ayudé a que la reestructuración de préstamos sea un proceso totalmente digital.',
+                'En el último año tuve la oportunidad de rehacer desde cero el sistema que cobra las deudas en mora del banco: sobregiros, tarjetas de crédito y préstamos. Hoy procesa más de 5,7 millones de registros de deuda por mes, y verlo funcionar todos los días a esa escala es de las cosas que más orgullo me dan. En el camino también armé backoffices para el equipo de cobros y ayudé a que la reestructuración de préstamos sea un proceso totalmente digital.',
                 'En Coto aprendí mucho sobre liderar personas: revisar código, acompañar a otros desarrolladores y tomar decisiones técnicas con las que después iba a convivir todo el equipo. Diseñé servicios que se comunican por Kafka, ordené PL/SQL que había crecido durante años, ayudé a dar forma a una arquitectura de control de fraude y automaticé procesos que antes llevaban horas de trabajo manual. Si algo hay que hacerlo más de una vez, busco la forma de automatizarlo.',
                 'Hoy trabajo con un enfoque híbrido. Primero escribimos PRDs y RFCs junto al Engineering Manager y el PM, y después usamos herramientas agénticas como Cursor y GitHub Copilot para avanzar más rápido. Para mí la IA es una aliada, no un atajo: una buena especificación y una revisión cuidadosa de cada cambio importan más que nunca.',
                 'Soy una persona tranquila y metódica. Me gusta tener un plan, pero siempre estoy buscando algo para mejorar, tanto para quienes usan el sistema como para quienes lo van a mantener después de mí.',
