@@ -1,6 +1,6 @@
 # Fernando Nahuel Tuquina
 
-> Senior Software Engineer (backend with Java and .NET) based in Tucumán, Argentina. Currently at ITTI working for ueno bank (Lending tribe, Collections team). Former Backend Tech Lead at Coto Digital. Spanish (native), English (intermediate).
+> Senior Backend Engineer (distributed systems and APIs with Java/Spring and C#/.NET) based in Tucumán, Argentina. Currently at ITTI working for ueno bank (Lending tribe, Collections team). Former Backend Tech Lead at Coto Digital. Spanish (native), English (intermediate).
 
 Website: https://fernandotuquina-cv.vercel.app
 
@@ -9,7 +9,7 @@ The interactive resume is in English by default (`/?lang=en`) and also available
 ## Experience
 
 - Senior Software Engineer — ITTI, client ueno bank (Aug 2025 – present).
-  - Rebuilt the bank's mass debt collector from scratch (overdrafts, credit cards and loans): 5.7M+ debts processed a month (~170K a day), ~250K successful collections a month, PYG 12B+ and USD 78K+ recovered monthly, 244K account and salary associations a month.
+  - Rebuilt the bank's mass debt collector from scratch (overdrafts, credit cards and loans): 5.7M+ debt records processed a month (~240K per business day), ~250K successful collections a month, PYG 12B+ and USD 78K+ recovered monthly, 244K account and salary associations a month.
   - Back-office tools for collections (customer exclusions, refunds and reversals): React micro-frontend, Kong API Gateway routes, BFF and backend microservices.
   - 100% digital, self-service loan restructuring; modular monoliths by bounded context; centralized debt-inquiry endpoints; endpoints for the new app home; MCP server design for loan-debt inquiries.
   - AWS (SQS, S3, DocumentDB), MongoDB, Redis distributed locks, GitHub Actions, Nullplatform, New Relic (NRQL), Jira.
@@ -24,7 +24,7 @@ Java, Spring, C#, .NET 8, JavaScript, React, microservices, modular monoliths, D
 
 ## Education and certifications
 
-- Computer Engineering (in progress) — Universidad Nacional de Tucumán (2017 – present)
+- Computer Engineering (coursework completed, thesis in progress) — Universidad Nacional de Tucumán (2017 – present)
 - Electronics Technician — Instituto Técnico Salesiano Lorenzo Massa (2009 – 2015)
 - Generative AI Fundamentals on AWS — AWS (2026)
 
