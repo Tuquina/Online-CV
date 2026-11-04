@@ -27,8 +27,8 @@ export const content = {
             description: 'Resume of Fernando Nahuel Tuquina, Senior Software Engineer (backend with Java and .NET) at ITTI for ueno bank. Former Backend Tech Lead at Coto Digital.',
         },
         ui: {
-            views: { cv: 'Resume', achievements: 'Achievements', coverLetter: 'Cover letter' },
-            viewsShort: { cv: 'Resume', achievements: 'Achievements', coverLetter: 'Letter' },
+            views: { cv: 'Resume', achievements: 'Achievements', projects: 'Projects', coverLetter: 'Cover letter' },
+            viewsShort: { cv: 'Resume', achievements: 'Results', projects: 'Projects', coverLetter: 'Letter' },
             download: 'Download',
             downloads: {
                 cv: 'Resume (PDF)',
@@ -169,7 +169,8 @@ export const content = {
             'Continuous learning',
         ],
         interests: ['Music (guitar and piano)', 'Cycling and running', '3D printing', 'Reading', 'Travel'],
-        // Web only: personal projects are not part of the PDF resume.
+        // Web only: personal projects have their own tab and are not part of the PDF resume.
+        projectsIntro: 'Things I build in my free time, to try new tools and because I simply enjoy it. Both are live, so you can play with them right now.',
         projects: [
             {
                 name: 'One Button',
@@ -259,8 +260,8 @@ export const content = {
             description: 'CV de Fernando Nahuel Tuquina, Senior Software Engineer (backend con Java y .NET) en ITTI para ueno bank. Ex Backend Tech Lead en Coto Digital.',
         },
         ui: {
-            views: { cv: 'CV', achievements: 'Logros', coverLetter: 'Carta de presentación' },
-            viewsShort: { cv: 'CV', achievements: 'Logros', coverLetter: 'Carta' },
+            views: { cv: 'CV', achievements: 'Logros', projects: 'Proyectos', coverLetter: 'Carta de presentación' },
+            viewsShort: { cv: 'CV', achievements: 'Logros', projects: 'Proyectos', coverLetter: 'Carta' },
             download: 'Descargar',
             downloads: {
                 cv: 'CV (PDF)',
@@ -401,6 +402,7 @@ export const content = {
             'Aprendizaje continuo',
         ],
         interests: ['Música (guitarra y piano)', 'Ciclismo y running', 'Impresión 3D', 'Lectura', 'Viajes'],
+        projectsIntro: 'Cosas que construyo en mi tiempo libre, para probar herramientas nuevas y porque simplemente lo disfruto. Los dos están publicados, así que se pueden probar ahora mismo.',
         projects: [
             {
                 name: 'One Button',
