@@ -2,7 +2,7 @@ import { content, LANGS, LAST_UPDATED } from './content.js';
 import { formatMonth, formatPeriod, formatToday, prettyUrl } from './format.js';
 
 /*==================== STATE ====================*/
-const VIEWS = ['cv', 'achievements', 'cover-letter'];
+const VIEWS = ['cv', 'achievements', 'projects', 'cover-letter'];
 const DEFAULT_VIEW = 'cv';
 const DEFAULT_LANG = 'en';
 
@@ -117,16 +117,18 @@ const renderCv = (tr) => {
                 <div class="cv__main">${main}</div>
                 <aside class="cv__aside">${aside}</aside>
             </div>
-            ${renderProjects(tr)}
         </article>`;
 };
 
-// Web only: the PDF resume does not include personal projects.
+// Web only: personal projects have their own view and are not part of the PDFs.
 const renderProjects = (tr) => {
     const links = tr.ui.projectLinks;
     const external = 'target="_blank" rel="noopener"';
-    return section(tr.ui.sections.projects, `
-        <div class="projects">
+    return `
+        <article class="sheet doc doc--wide">
+            <h1 class="doc__title">${esc(tr.ui.sections.projects)}</h1>
+            <p class="doc__intro">${esc(tr.projectsIntro)}</p>
+            <div class="projects">
             ${tr.projects.map((p) => `
                 <article class="project">
                     <a class="project__media" href="${esc(p.demo)}" ${external} tabindex="-1" aria-hidden="true">
@@ -142,7 +144,8 @@ const renderProjects = (tr) => {
                         </div>
                     </div>
                 </article>`).join('')}
-        </div>`, 'projects');
+            </div>
+        </article>`;
 };
 
 const renderAchievements = (tr) => {
@@ -182,7 +185,7 @@ const renderCoverLetter = (tr) => {
         </article>`;
 };
 
-const RENDERERS = { cv: renderCv, achievements: renderAchievements, 'cover-letter': renderCoverLetter };
+const RENDERERS = { cv: renderCv, achievements: renderAchievements, projects: renderProjects, 'cover-letter': renderCoverLetter };
 
 /*==================== DOM ====================*/
 const $ = (selector) => document.querySelector(selector);
@@ -197,7 +200,7 @@ const bottomToggle = $('#bottom-toggle');
 const bottomBackdrop = $('#bottom-backdrop');
 
 /*==================== MOBILE SECTIONS MENU ====================*/
-// CV sections jump within the resume; the last two items switch views.
+// CV sections jump within the resume; the last items switch views.
 const NAV_ITEMS = [
     { section: 'top', icon: 'home', label: (tr) => tr.ui.nav.home },
     { section: 'profile', icon: 'user', label: (tr) => tr.ui.sections.summary },
@@ -208,8 +211,8 @@ const NAV_ITEMS = [
     { section: 'languages', icon: 'globe', label: (tr) => tr.ui.sections.languages },
     { section: 'competencies', icon: 'users', label: (tr) => tr.ui.sections.competencies },
     { section: 'interests', icon: 'heart', label: (tr) => tr.ui.sections.interests },
-    { section: 'projects', icon: 'folder', label: (tr) => tr.ui.sections.projects },
     { view: 'achievements', icon: 'trophy', label: (tr) => tr.ui.views.achievements },
+    { view: 'projects', icon: 'folder', label: (tr) => tr.ui.views.projects },
     { view: 'cover-letter', icon: 'letter', label: (tr) => tr.ui.views.coverLetter },
 ];
 
@@ -316,7 +319,7 @@ function renderChrome() {
     $('meta[name="description"]').setAttribute('content', tr.meta.description);
 
     // Tabs
-    const key = { cv: 'cv', achievements: 'achievements', 'cover-letter': 'coverLetter' };
+    const key = { cv: 'cv', achievements: 'achievements', projects: 'projects', 'cover-letter': 'coverLetter' };
     document.querySelectorAll('[data-view]').forEach((tab) => {
         const view = tab.dataset.view;
         tab.innerHTML =
