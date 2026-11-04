@@ -2,6 +2,8 @@
 
 > Senior Software Engineer (backend with Java and .NET) based in Tucumán, Argentina. Currently at ITTI working for ueno bank (Lending tribe, Collections team). Former Backend Tech Lead at Coto Digital. Spanish (native), English (intermediate).
 
+Website: https://fernandotuquina-cv.vercel.app
+
 The interactive resume is in English by default (`/?lang=en`) and also available in Spanish (`/?lang=es`). The "Download" menu generates text-based PDFs of the resume, the achievements and the cover letter.
 
 ## Experience
@@ -31,3 +33,8 @@ Java, Spring, C#, .NET 8, JavaScript, React, microservices, modular monoliths, D
 - Email: fernandotuquina@gmail.com
 - LinkedIn: https://www.linkedin.com/in/fernando-nahuel-tuquina-0ba2a1245/
 - GitHub: https://github.com/Tuquina
+
+## Personal projects
+
+- One Button — one-button arcade runner (TypeScript, Canvas 2D, Web Audio, Vite). Demo: https://endless-arcade-runner.vercel.app/ · Code: https://github.com/Tuquina/Endless-Arcade-Runner
+- Strixhaven Draft Academy — local-first app to run casual Magic: The Gathering draft tournaments (React, TypeScript, Tailwind CSS, Supabase). Demo: https://strixhaven-draft-academy.vercel.app/ · Code: https://github.com/Tuquina/strixhaven-draft-academy

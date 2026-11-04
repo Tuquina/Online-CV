@@ -48,6 +48,7 @@ const contactItems = (b) => [
     { icon: 'phone', label: b.phone, href: `tel:${b.phone.replace(/\s/g, '')}` },
     { icon: 'linkedin', label: 'LinkedIn', href: b.linkedin },
     { icon: 'github', label: prettyUrl(b.github), href: b.github },
+    { icon: 'globe', label: prettyUrl(b.website), href: b.website },
 ];
 
 const contactList = (b) =>
@@ -116,7 +117,32 @@ const renderCv = (tr) => {
                 <div class="cv__main">${main}</div>
                 <aside class="cv__aside">${aside}</aside>
             </div>
+            ${renderProjects(tr)}
         </article>`;
+};
+
+// Web only: the PDF resume does not include personal projects.
+const renderProjects = (tr) => {
+    const links = tr.ui.projectLinks;
+    const external = 'target="_blank" rel="noopener"';
+    return section(tr.ui.sections.projects, `
+        <div class="projects">
+            ${tr.projects.map((p) => `
+                <article class="project">
+                    <a class="project__media" href="${esc(p.demo)}" ${external} tabindex="-1" aria-hidden="true">
+                        <img src="${esc(p.image)}" alt="" width="640" height="400" loading="lazy" decoding="async">
+                    </a>
+                    <div class="project__body">
+                        <h3 class="project__name">${esc(p.name)}</h3>
+                        <p class="project__description">${esc(p.description)}</p>
+                        ${list(p.tags, esc, 'tags')}
+                        <div class="project__links">
+                            <a class="btn btn--ghost btn--sm" href="${esc(p.demo)}" ${external}>${icon('external')}<span>${esc(links.demo)}</span></a>
+                            <a class="btn btn--ghost btn--sm" href="${esc(p.repo)}" ${external}>${icon('github')}<span>${esc(links.code)}</span></a>
+                        </div>
+                    </div>
+                </article>`).join('')}
+        </div>`, 'projects');
 };
 
 const renderAchievements = (tr) => {
@@ -182,6 +208,7 @@ const NAV_ITEMS = [
     { section: 'languages', icon: 'globe', label: (tr) => tr.ui.sections.languages },
     { section: 'competencies', icon: 'users', label: (tr) => tr.ui.sections.competencies },
     { section: 'interests', icon: 'heart', label: (tr) => tr.ui.sections.interests },
+    { section: 'projects', icon: 'folder', label: (tr) => tr.ui.sections.projects },
     { view: 'achievements', icon: 'trophy', label: (tr) => tr.ui.views.achievements },
     { view: 'cover-letter', icon: 'letter', label: (tr) => tr.ui.views.coverLetter },
 ];
@@ -322,7 +349,7 @@ function renderChrome() {
 /*==================== SCROLL REVEAL ====================*/
 const REVEAL_TARGETS = [
     '.block__title', '.summary', '.job', '.edu', '.skill-group', '.pairs', '.certs', '.plain',
-    '.doc__title', '.doc__intro', '.bullets--spaced li', '.letter > p', '.letter__sign',
+    '.project', '.doc__title', '.doc__intro', '.bullets--spaced li', '.letter > p', '.letter__sign',
 ].join(',');
 
 const motionAllowed = window.matchMedia('(prefers-reduced-motion: no-preference)').matches && 'IntersectionObserver' in window;

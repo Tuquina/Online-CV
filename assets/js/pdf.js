@@ -149,7 +149,7 @@ class Writer {
 
         const rows = [
             [{ text: b.location }, { text: b.email, url: `mailto:${b.email}` }, { text: b.phone, url: `tel:${b.phone.replace(/\s/g, '')}` }],
-            [{ text: prettyUrl(b.linkedin), url: b.linkedin }, { text: prettyUrl(b.github), url: b.github }],
+            [{ text: prettyUrl(b.linkedin), url: b.linkedin }, { text: prettyUrl(b.github), url: b.github }, { text: prettyUrl(b.website), url: b.website }],
         ];
         this.font(9.2, 'normal', COLOR.muted);
         const separator = '  |  ';
