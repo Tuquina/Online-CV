@@ -130,11 +130,21 @@ class Writer {
     }
 
     // Label column + wrapped value column, e.g. "Backend    C#, .NET, Java…".
-    labelled(label, value, { labelWidth = 142, size = 9.8 } = {}) {
+    // A list of items only breaks between items, so no name is split across lines.
+    labelled(label, items, { labelWidth = 142, size = 9.8 } = {}) {
         this.font(size, 'bold');
         this.ensure(size * 1.4);
         this.doc.text(label, MARGIN_X, this.y + size * 0.8);
-        this.paragraph(value, { size, indent: labelWidth });
+        this.font(size);
+        const width = CONTENT_W - labelWidth;
+        const lines = [];
+        items.forEach((item, index) => {
+            const piece = index < items.length - 1 ? `${item},` : item;
+            const last = lines.length - 1;
+            if (last >= 0 && this.doc.getTextWidth(`${lines[last]} ${piece}`) <= width) lines[last] += ` ${piece}`;
+            else lines.push(piece);
+        });
+        this.paragraph(lines.join('\n'), { size, indent: labelWidth });
         this.space(2);
     }
 
@@ -206,8 +216,8 @@ const buildCv = (w, t) => {
     });
 
     w.heading(s.skills);
-    t.skills.forEach((group) => w.labelled(group.group, group.items.join(', ')));
-    w.labelled(s.competencies, t.competencies.join(', '));
+    t.skills.forEach((group) => w.labelled(group.group, group.items));
+    w.labelled(s.competencies, t.competencies);
 
     w.heading(s.education);
     t.education.forEach((edu, index) => {

@@ -10,7 +10,7 @@ The interactive resume is in English by default (`/?lang=en`) and also available
 
 - Senior Software Engineer — ITTI, client ueno bank (Aug 2025 – present).
   - Rebuilt the bank's mass debt collector from scratch (overdrafts, credit cards and loans): 5.7M+ debt records processed a month (~240K per business day), ~250K successful collections a month, PYG 12B+ and USD 78K+ recovered monthly, 244K account and salary associations a month.
-  - Back-office tools for collections (customer exclusions, refunds and reversals): React micro-frontend, Kong API Gateway routes, BFF and backend microservices.
+  - Back-office tools for collections (customer exclusions, refunds and reversals): React and TypeScript micro-frontend, Kong API Gateway routes, BFF and backend microservices.
   - 100% digital, self-service loan restructuring; modular monoliths by bounded context; centralized debt-inquiry endpoints; endpoints for the new app home; MCP server design for loan-debt inquiries.
   - AWS (SQS, S3, DocumentDB), MongoDB, Redis distributed locks, GitHub Actions, Nullplatform, New Relic (NRQL), Jira.
   - PRDs and RFCs with the Engineering Manager and PM; hybrid traditional and agentic development with Spec-Driven Development (SDD), Cursor and GitHub Copilot.
@@ -20,7 +20,7 @@ The interactive resume is in English by default (`/?lang=en`) and also available
 
 ## Skills
 
-Java, Spring, C#, .NET 8, JavaScript, React, microservices, modular monoliths, DDD bounded contexts, Clean Architecture, REST APIs, BFF, Kong, AWS (SQS, S3, DocumentDB), Kafka, Redis, MongoDB, Oracle, SQL Server, MySQL, PL/SQL, Docker, GitHub Actions, Nullplatform, New Relic (NRQL), Git, Linux, unit testing, code review, Agile/Scrum, Jira, Spec-Driven Development, Cursor, GitHub Copilot, MCP.
+Java, Spring, C#, .NET 8, TypeScript, JavaScript, React, microservices, modular monoliths, DDD bounded contexts, Clean Architecture, REST APIs, BFF, Kong, AWS (SQS, S3, DocumentDB), Kafka, Redis, MongoDB, Oracle, SQL Server, MySQL, PL/SQL, Docker, GitHub Actions, Nullplatform, New Relic (NRQL), Git, Linux, unit testing, code review, Agile/Scrum, Jira, Spec-Driven Development, Cursor, GitHub Copilot, MCP.
 
 ## Education and certifications
 

@@ -42,6 +42,7 @@ export const content = {
             menu: 'Download options',
             nav: { label: 'Sections', home: 'Home', open: 'Open the sections menu', close: 'Close the sections menu' },
             projectLinks: { demo: 'Live demo', code: 'Code', preview: 'Screenshot of' },
+            details: { show: 'Show details', hide: 'Hide details' },
             present: 'Present',
             page: 'Page',
             of: 'of',
@@ -83,7 +84,7 @@ export const content = {
                     'Automated loan restructuring into a 100% digital, self-service flow, and migrated key collections services to modular monoliths organized by bounded context.',
                     'Co-authored PRDs and RFCs with the Engineering Manager and PM to deliver with Spec-Driven Development (SDD) and agentic tools such as Cursor and GitHub Copilot.',
                 ],
-                tags: ['Java', 'Spring', 'AWS (SQS, S3, DocumentDB)', 'MongoDB', 'Redis', 'Kong', 'React', 'New Relic', 'SDD'],
+                tags: ['Java', 'Spring', 'AWS (SQS, S3, DocumentDB)', 'MongoDB', 'Redis', 'Kong', 'React', 'TypeScript', 'New Relic', 'SDD'],
             },
             {
                 role: 'Backend Tech Lead',
@@ -121,11 +122,14 @@ export const content = {
                 role: 'Substitute Teacher (Computer Science and Electronics)',
                 company: 'Instituto Técnico Salesiano Lorenzo Massa',
                 period: '2021',
+                // `details` is shown only on the website, collapsed; the PDFs leave it out.
+                details: ['Workshop teacher for Computer Science I and II, Computer-Aided Design and Industrial Electronics.'],
             },
             {
                 role: 'Electronic Instrumentation Intern (PLC programming)',
                 company: 'San Miguel (citrus industry)',
                 period: '2015',
+                details: ['Programmed PLCs and set up digital and analog sensors in the electronic maintenance area.'],
             },
         ],
         education: [
@@ -141,8 +145,8 @@ export const content = {
             },
         ],
         skills: [
-            { group: 'Languages & frameworks', items: ['Java', 'Spring', 'C#', '.NET / .NET 8', 'JavaScript', 'React (micro-frontends)'] },
-            { group: 'Architecture', items: ['Microservices', 'Modular monoliths', 'Bounded contexts (DDD)', 'Clean Architecture', 'REST APIs', 'BFF', 'Kong API Gateway'] },
+            { group: 'Languages & frameworks', items: ['Java', 'Spring', 'C#', '.NET / .NET 8', 'TypeScript', 'JavaScript', 'React'] },
+            { group: 'Architecture', items: ['Microservices', 'Modular monoliths', 'Bounded contexts (DDD)', 'Clean Architecture', 'REST APIs', 'BFF', 'Micro-frontends', 'Kong API Gateway'] },
             { group: 'Cloud & messaging', items: ['AWS (SQS, S3, DocumentDB)', 'Kafka', 'Redis (caching, distributed locks)'] },
             { group: 'Databases', items: ['MongoDB', 'Oracle', 'SQL Server', 'MySQL', 'PL/SQL'] },
             { group: 'DevOps & observability', items: ['Docker', 'GitHub Actions', 'Nullplatform', 'New Relic (NRQL)', 'Serilog', 'Git', 'Linux'] },
@@ -276,6 +280,7 @@ export const content = {
             menu: 'Opciones de descarga',
             nav: { label: 'Secciones', home: 'Inicio', open: 'Abrir el menú de secciones', close: 'Cerrar el menú de secciones' },
             projectLinks: { demo: 'Ver demo', code: 'Código', preview: 'Captura de' },
+            details: { show: 'Ver detalle', hide: 'Ocultar detalle' },
             present: 'Actualidad',
             page: 'Página',
             of: 'de',
@@ -317,7 +322,7 @@ export const content = {
                     'Automaticé la reestructuración de préstamos en un flujo 100% digital y autogestionado, y migré servicios clave de cobranza a monolitos modulares separados por bounded context.',
                     'Redacté PRDs y RFCs junto al Engineering Manager y al PM para trabajar con Spec-Driven Development (SDD) y herramientas agénticas como Cursor y GitHub Copilot.',
                 ],
-                tags: ['Java', 'Spring', 'AWS (SQS, S3, DocumentDB)', 'MongoDB', 'Redis', 'Kong', 'React', 'New Relic', 'SDD'],
+                tags: ['Java', 'Spring', 'AWS (SQS, S3, DocumentDB)', 'MongoDB', 'Redis', 'Kong', 'React', 'TypeScript', 'New Relic', 'SDD'],
             },
             {
                 role: 'Backend Tech Lead',
@@ -355,11 +360,13 @@ export const content = {
                 role: 'Docente reemplazante (Informática y Electrónica)',
                 company: 'Instituto Técnico Salesiano Lorenzo Massa',
                 period: '2021',
+                details: ['Docente de taller en Informática I y II, Diseño Asistido por Computadora y Electrónica Industrial.'],
             },
             {
                 role: 'Pasante en Instrumentación Electrónica (programación de PLC)',
                 company: 'San Miguel (industria citrícola)',
                 period: '2015',
+                details: ['Programé PLC y configuré sensores digitales y analógicos en el sector de mantenimiento electrónico.'],
             },
         ],
         education: [
@@ -375,8 +382,8 @@ export const content = {
             },
         ],
         skills: [
-            { group: 'Lenguajes y frameworks', items: ['Java', 'Spring', 'C#', '.NET / .NET 8', 'JavaScript', 'React (microfrontends)'] },
-            { group: 'Arquitectura', items: ['Microservicios', 'Monolitos modulares', 'Bounded contexts (DDD)', 'Clean Architecture', 'APIs REST', 'BFF', 'Kong API Gateway'] },
+            { group: 'Lenguajes y frameworks', items: ['Java', 'Spring', 'C#', '.NET / .NET 8', 'TypeScript', 'JavaScript', 'React'] },
+            { group: 'Arquitectura', items: ['Microservicios', 'Monolitos modulares', 'Bounded contexts (DDD)', 'Clean Architecture', 'APIs REST', 'BFF', 'Microfrontends', 'Kong API Gateway'] },
             { group: 'Cloud y mensajería', items: ['AWS (SQS, S3, DocumentDB)', 'Kafka', 'Redis (caché, locks distribuidos)'] },
             { group: 'Bases de datos', items: ['MongoDB', 'Oracle', 'SQL Server', 'MySQL', 'PL/SQL'] },
             { group: 'DevOps y observabilidad', items: ['Docker', 'GitHub Actions', 'Nullplatform', 'New Relic (NRQL)', 'Serilog', 'Git', 'Linux'] },
