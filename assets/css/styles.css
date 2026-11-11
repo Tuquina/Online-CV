@@ -520,6 +520,66 @@ button {
     font-size: 14px;
 }
 
+/* Web-only extra detail (collapsed). */
+.job__more {
+    margin-top: 6px;
+}
+
+.job__toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 0;
+    color: var(--accent);
+    font-size: 13.5px;
+    font-weight: 500;
+    cursor: pointer;
+    list-style: none;
+    border-radius: 4px;
+}
+
+.job__toggle::-webkit-details-marker {
+    display: none;
+}
+
+.job__toggle:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.job__toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.job__toggle .icon {
+    width: 15px;
+    height: 15px;
+    transition: transform 0.2s var(--ease-out);
+}
+
+.job__more[open] .job__toggle .icon {
+    transform: rotate(180deg);
+}
+
+.job__toggle-hide,
+.job__more[open] .job__toggle-show {
+    display: none;
+}
+
+.job__more[open] .job__toggle-hide {
+    display: inline;
+}
+
+.job__more-list {
+    margin-top: 4px;
+    color: var(--text-muted);
+}
+
+.job__more[open] .job__more-list {
+    animation: fade-up 0.25s var(--ease-out);
+}
+
 .bullets {
     display: grid;
     gap: 5px;
@@ -1262,6 +1322,7 @@ body,
     .toast,
     .bottom-nav,
     .bottom-nav__backdrop,
+    .job__more,
     .skip-link {
         display: none !important;
     }

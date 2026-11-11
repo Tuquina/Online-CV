@@ -69,6 +69,17 @@ const docHeader = (b, { photo = false } = {}) => `
         </div>
     </header>`;
 
+// Web-only extra detail for early roles: collapsed by default, never in the PDFs.
+const jobDetails = (items, tr) => `
+    <details class="job__more">
+        <summary class="job__toggle">
+            <span class="job__toggle-show">${esc(tr.ui.details.show)}</span>
+            <span class="job__toggle-hide">${esc(tr.ui.details.hide)}</span>
+            ${icon('chevron')}
+        </summary>
+        ${list(items, esc, 'bullets job__more-list')}
+    </details>`;
+
 const job = (j, tr) => `
     <article class="job${j.end === null ? ' job--current' : ''}">
         <header class="job__head">
@@ -79,6 +90,7 @@ const job = (j, tr) => `
         ${j.context ? `<p class="job__context">${esc(j.context)}</p>` : ''}
         ${j.highlights ? list(j.highlights, esc, 'bullets') : ''}
         ${j.tags ? list(j.tags, esc, 'tags') : ''}
+        ${j.details ? jobDetails(j.details, tr) : ''}
     </article>`;
 
 const renderCv = (tr) => {
